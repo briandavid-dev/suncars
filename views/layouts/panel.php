@@ -10,10 +10,9 @@ use yii\widgets\Breadcrumbs;
 use app\assets\DashboardAsset;
 use yii\helpers\Url;
 use app\models\Usuarios;
-use app\models\HistoriaMedica;
+use app\models\PaginasGenerales;
 use app\models\Clientes;
-use app\models\Clinicas;
-use app\models\Doctores;
+
 
 DashboardAsset::register($this);
 ?>
@@ -263,8 +262,22 @@ DashboardAsset::register($this);
                                 </ul>
                             </li>
 
+                        <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-bars"></i> <span>Páginas Generales</span>
+                            <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class=""><a href="<?php print Url::to(['paginasgenerales/create']);?>">Nuevo</a></li>
+                            <li class=""><a href="<?php print Url::to(['paginasgenerales/index']);?>">Gestionar</a></li>
+                                              
+                        </ul>
+                    </li>
 
-                    <li class="treeview">
+
+                  <!--  <li class="treeview">
                         <a href="#">
                             <i class="fa fa-bars"></i> <span>Subcategorías</span>
                             <span class="pull-right-container">
@@ -276,7 +289,7 @@ DashboardAsset::register($this);
                           	<li class=""><a href="<?php print Url::to(['subcategorias/index']);?>">Gestionar</a></li>
                                               
                         </ul>
-                    </li>
+                    </li>-->
                     
                             <li>
                             
