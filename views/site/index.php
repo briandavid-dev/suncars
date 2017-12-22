@@ -6,7 +6,6 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\assets\RigalAsset;
 use yii\helpers\Url;
 ?>
 
@@ -14,9 +13,7 @@ use yii\helpers\Url;
 <?php 
                     $nombre='inicio';
 
-                    $banners = Banners::find()
-                   
-                    ->all();
+                    $banners = Banners::find()->all();
                     
                   ?>
 
@@ -301,88 +298,6 @@ use yii\helpers\Url;
                 
   
                
-                  <!--  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-left-none padding-right-none hours_operation">
-                        <div class="small-block clearfix">
-                            <h4 class="margin-bottom-25 margin-top-none">¿Desea saber nuestros horarios de atención al cliente?</h4>
-                            <div class="row" >
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 xs-margin-bottom-40 sm-margin-bottom-40 md-margin-bottom-none scroll_effect bounceInUp" data-wow-delay=".4s">
-                                    <table  style="text-align:center;" class="table table-bordered no-border font-13px margin-bottom-none" >
-                                        <thead>
-                                            <tr >
-                                                <td colspan="2"><strong>Días Hábiles</strong></td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Lun:</td>
-                                                <td>8:00am - 5:00pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Mart:</td>
-                                                <td>8:00am - 5:00pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Mié:</td>
-                                                <td>8:00am - 5:00pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jue:</td>
-                                                <td>8:00am - 5:00pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Vie:</td>
-                                                <td>8:00am - 5:00pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Sab:</td>
-                                                <td>8:00am - 3:00pm</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Dom:</td>
-                                                <td>Closed</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 xs-margin-bottom-40 sm-margin-bottom-none scroll_effect bounceInUp" data-wow-delay=".4s">
-                                    <table class="table table-bordered no-border font-13px margin-bottom-none">
-                                        <thead>
-                                            <tr>
-                                                <td colspan="2"><strong>Feriado</strong></td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Horario:</td>
-                                                    <td>8:00am - 1:00pm</td>
-                                            </tr>                                         
-                                        </tbody>
-                                    </table>
-                                </div>
-
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 xs-margin-bottom-40 sm-margin-bottom-none scroll_effect bounceInUp" data-wow-delay=".4s">
-                                    <table class="table table-bordered no-border font-13px margin-bottom-none">
-                                        <thead>
-                                            <tr>
-                                                <td colspan="2"><strong>Feriado</strong></td>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Bancario:</td>
-                                                    <td>8:00am - 1:00pm</td>
-                                            </tr>                                         
-                                        </tbody>
-                                    </table>
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
-  
-            </section>  -->
-
 <!--message-wrap ends-->
 <section class="content">
     <div class="container">
@@ -446,101 +361,6 @@ use yii\helpers\Url;
                 </div>
             </section>
             
-            <!--car-block-wrap ends-->
-            <!-- <div class="row parallax_parent design_2 margin-bottom-40 margin-top-30">
-                <div class="parallax_scroll clearfix" data-velocity="-.5" data-offset="-200" data-image="themes/automovile/images/parallax1.jpg">
-                    <div class="overlay">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 padding-left-none xs-margin-bottom-none xs-padding-top-30 scroll_effect bounceInLeft"> <span class="align-center"><i class="fa fa-6x fa-bar-chart-o"></i></span>
-                                    <h3>Results Driven</h3>
-                                    <p>Sed ut perspiciatis unde om nis
-                                        natus error sit volup atem accusant 
-                                        dolorem que laudantium. Totam 
-                                        aperiam, eaque ipsa quae ai.</p>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 xs-margin-bottom-none xs-padding-top-30 scroll_effect bounceInLeft" data-wow-delay=".2s"> <span class="align-center"><i class="fa fa-6x fa-road"></i></span>
-                                    <h3>Proven Technology</h3>
-                                    <p>Sed ut perspiciatis unde om nis
-                                        natus error sit volup atem accusant 
-                                        dolorem que laudantium. Totam 
-                                        aperiam, eaque ipsa quae ai.</p>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 xs-margin-bottom-none xs-padding-top-30 scroll_effect bounceInRight" data-wow-delay=".2s"> <span class="align-center"><i class="fa fa-6x fa-flag-checkered"></i></span>
-                                    <h3>Winning Culture</h3>
-                                    <p>Sed ut perspiciatis unde om nis
-                                        natus error sit volup atem accusant 
-                                        dolorem que laudantium. Totam 
-                                        aperiam, eaque ipsa quae ai.</p>
-                                </div>
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 xs-margin-bottom-none xs-padding-top-30 padding-right-none scroll_effect bounceInRight"> <span class="align-center"><i class="fa fa-6x fa-dashboard"></i></span>
-                                    <h3>Top Performance</h3>
-                                    <p>Sed ut perspiciatis unde om nis
-                                        natus error sit volup atem accusant 
-                                        dolorem que laudantium. Totam 
-                                        aperiam, eaque ipsa quae ai.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
-            <!--car-info-wrap ends-->
-
-            <!--welcome-wrap ends-->
-            
-           <!-- <div class="row parallax_parent margin-top-30">
-                <div class="parallax_scroll clearfix" data-velocity="-.5" data-offset="-300" data-no-repeat="true" data-image="themes/automovile/images/parallax2.jpg">
-                    <div class="overlay">
-                        <div class="container">
-                            
-                            <div class="row">
-                                
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 padding-left-none margin-vertical-60">
-                                    <i class="fa fa-car"></i>
-                                    
-                                    <span class="animate_number margin-vertical-15">
-                                        <span class="number">2,000</span>
-                                    </span>
-                                    
-                                    Cars Sold
-                                </div>
-                                
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 margin-vertical-60">
-                                    <i class="fa fa-money"></i>
-                                    
-                                    <span class="animate_number margin-vertical-15">
-                                        $<span class="number">750,000</span>
-                                    </span>
-                                    
-                                    Amount Sold
-                                </div>
-                                
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 margin-vertical-60">
-                                    <i class="fa fa-users"></i>
-                                    
-                                    <span class="animate_number margin-vertical-15">
-                                        <span class="number">100</span>%
-                                    </span>
-                                    
-                                    Customer Satisfaction
-                                </div>
-                                
-                                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 padding-right-none margin-vertical-60">
-                                    <i class="fa fa-tint"></i>
-                                    
-                                    <span class="animate_number margin-vertical-15">
-                                        <span class="number">3,600</span>
-                                    </span>
-                                    
-                                    Oil Changes
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>-->
         </div>
     </div>
 </section>

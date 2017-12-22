@@ -11,7 +11,6 @@ $this->title = Yii::t('app', 'Actualizar {modelClass} ', [
     'modelClass' => 'Categoría',
 ]);
 $this->params['breadcrumbs'][] = ['label' => 'Categorías', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->categorie_id, 'url' => ['view', 'id' => $model->categorie_id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Update');
 ?>
 <div class="box box-primary">

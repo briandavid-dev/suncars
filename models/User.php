@@ -33,9 +33,6 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public $usuario_mensaje_publico;
     public $usuario_genero;
     public $usuario_fecha_nacimiento;
-    public $pais_id;
-    public $usuario_codigo;
-    public $usuario_fecha_codigo;
     
     
 

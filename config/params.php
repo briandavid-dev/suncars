@@ -4,7 +4,7 @@
 
 return [
     //'adminEmail' => 'admin@example.com',
-	'usuariosPerfiles' => ['administrador'=>'administrador','paciente'=>'paciente','doctor'=>'doctor', 'asistente' =>'asistente'],
+	'usuariosPerfiles' => ['administrador'=>'administrador'],
 	'bebidas' => ['1' => 'todos los dias' , '2' => 'fines de semana' , '3' => 'ocasiones especiales'],
 	'banners' => ['home' => 'home' , 'nosotros' => 'nosotros' , 'contacto' => 'contacto', 'enciclopedia' => 'enciclopedia' , 'centros' => 'centros de salud', 'medicos' => 'medicos' , 'seguros' => 'seguros', 'login' => 'login'],
 		
@@ -13,7 +13,7 @@ return [
 		'pesolibra' => ['Kilogramo(s)' => 'Kilogramo(s)' , 'Libra(s)' => 'Libra(s)' ],
 		'estatura' => ['Metro(s)' => 'Metro(s)' , 'Pulgada(s)' => 'Pulgada(s)' ],
 		
-	'panelClienteNombre' => 'tuagendamedica.com',
+	'panelClienteNombre' => 'suncars.com.ve',
 		
 	'country'=>'ve',
 			
@@ -23,18 +23,18 @@ return [
 	//'emailSegundario'=>'',
 	//'emailCopia'=>'bmosolucionestecnologicas@gmail.com',
 	'emailBcc'=>'brayad@hotmail.com', // copia de mail oculta
-		'dominioWebUrl'=>'http://www.bmosoluciones.com',
-	'dominioNombreMinusculaSinWWW'=>'tuagendamedica.com',
-	'dominioNombreMayusculaSinWWW'=>'TUAGENDAMEDICA.COM',
-	'dominioNombreMinusculaConWWW'=>'www.tuagendamedica.com',
-	'dominioNombreMayusculaConWWW'=>'WWW.TUAGENDAMEDICA.COM',
+		'dominioWebUrl'=>'http://www.suncars.com.ve',
+	'dominioNombreMinusculaSinWWW'=>'suncars.com.ve',
+	'dominioNombreMayusculaSinWWW'=>'SUNCARS.COM.VE',
+	'dominioNombreMinusculaConWWW'=>'www.suncars.com.ve',
+	'dominioNombreMayusculaConWWW'=>'WWW.SUNCARS.COM.VE',
 	'mapsApiKey'=>'AIzaSyCnHLSbg6W6vVhTcxTkz8pr13lwiYZfjE4',
 	'developer'=>'<a href="mailto:brayad@gmail.com" target="_top" class="footerlinks" style="font-weight: bold;" >Brian Ochoa. Web Developer</a>. brayad@gmail.com',
 		
 		
 		
-		'emailContacto'=>'info@tuagendamedica.com',
-		'emailName'=>'INFO TUAGENDAMEDICA',
+		'emailContacto'=>'info@suncars.com.ve',
+		'emailName'=>'INFO SUNCARS',
 
 
 		

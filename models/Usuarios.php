@@ -29,12 +29,13 @@ use Yii;
  * @property string $usuario_fecha_nacimiento
  * @property string $authKey
  * @property string $accessToken
- *
- * @property Comentarios[] $comentarios
- * @property Contenidos[] $contenidos
  */
 class Usuarios extends \yii\db\ActiveRecord
 {
+	
+	public $usuario_email_confirmacion;
+	public $usuario_password_confirmacion;
+	
     /**
      * @inheritdoc
      */
@@ -49,14 +50,27 @@ class Usuarios extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['usuario_id', 'usuario_nombre', 'usuario_apellido', 'usuario_login', 'usuario_password', 'usuario_email', 'usuario_direccion', 'usuario_perfil'], 'required'],
-            [['usuario_id', 'usuario_activo', 'usuario_online'], 'integer'],
+            [['usuario_nombre', 'usuario_apellido', 'usuario_login', 'usuario_perfil'], 'required'],
+            [['usuario_password', 'usuario_email', 'usuario_direccion', 'usuario_imagen_1', 'authKey', 'accessToken'], 'string'],
             [['usuario_fecha_creacion', 'usuario_fecha_modificacion', 'usuario_fecha_ultimo_acceso', 'usuario_fecha_nacimiento'], 'safe'],
-            [['usuario_email', 'usuario_direccion', 'usuario_imagen_1', 'authKey', 'accessToken'], 'string'],
-            [['usuario_nombre', 'usuario_apellido', 'usuario_login', 'usuario_password', 'usuario_perfil', 'usuario_genero'], 'string', 'max' => 45],
+            [[ 'usuario_online'], 'integer'],
+            [['usuario_nombre', 'usuario_apellido', 'usuario_login', 'usuario_perfil', 'usuario_genero'], 'string', 'max' => 45],
             [['usuario_telefono_1', 'usuario_telefono_2'], 'string', 'max' => 15],
             [['usuario_estado'], 'string', 'max' => 20],
             [['usuario_mensaje_publico'], 'string', 'max' => 100],
+        		
+        	[['usuario_email', 'usuario_email_confirmacion'],'required'],
+        	[['usuario_email', 'usuario_email_confirmacion'],'email'],
+        	[['usuario_email'],'unique'],
+        	[['usuario_email'],'compare','compareAttribute'=>'usuario_email_confirmacion'],
+        	
+        	[['usuario_password', 'usuario_password_confirmacion'],'required'],
+        	[['usuario_password', 'usuario_password_confirmacion'], 'string', 'length' => [8, 50]],
+        	[['usuario_password'],'compare','compareAttribute'=>'usuario_password_confirmacion'],
+
+      ['usuario_activo', 'in', 'range' => ['1','0'], 'strict' => true,'message' => 'Debes colocar 1 = SI o  0 = NO'],
+        		
+        		
         ];
     }
 
@@ -66,45 +80,33 @@ class Usuarios extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'usuario_id' => 'Usuario ID',
-            'usuario_nombre' => 'Usuario Nombre',
-            'usuario_apellido' => 'Usuario Apellido',
-            'usuario_login' => 'Usuario Login',
-            'usuario_password' => 'Usuario Password',
-            'usuario_fecha_creacion' => 'Usuario Fecha Creacion',
-            'usuario_fecha_modificacion' => 'Usuario Fecha Modificacion',
-            'usuario_fecha_ultimo_acceso' => 'Usuario Fecha Ultimo Acceso',
-            'usuario_email' => 'Usuario Email',
-            'usuario_telefono_1' => 'Usuario Telefono 1',
-            'usuario_telefono_2' => 'Usuario Telefono 2',
-            'usuario_direccion' => 'Usuario Direccion',
+            'usuario_id' => 'ID USUARIO',
+            'usuario_nombre' => 'Nombre',
+            'usuario_apellido' => 'Apellido',
+            'usuario_login' => 'Login',
+            'usuario_password' => 'Contraseña',
+            'usuario_fecha_creacion' => 'Fecha Creación',
+            'usuario_fecha_modificacion' => 'Fecha modificación
+',
+            'usuario_fecha_ultimo_acceso' => 'Fecha último acceso',
+            'usuario_email' => 'Correo Electrónico',
+            'usuario_telefono_1' => 'Teléfono 1',
+            'usuario_telefono_2' => 'Teléfono 2',
+            'usuario_direccion' => 'Dirección',
             'usuario_activo' => 'Usuario Activo',
             'usuario_online' => 'Usuario Online',
-            'usuario_perfil' => 'Usuario Perfil',
+            'usuario_perfil' => 'Perfíl',
             'usuario_imagen_1' => 'Usuario Imagen 1',
-            'usuario_estado' => 'Usuario Estado',
-            'usuario_mensaje_publico' => 'Usuario Mensaje Publico',
-            'usuario_genero' => 'Usuario Genero',
-            'usuario_fecha_nacimiento' => 'Usuario Fecha Nacimiento',
+            'usuario_estado' => 'Disponibilidad',
+            'usuario_mensaje_publico' => 'Mensaje al público',
+            'usuario_genero' => 'Género',
+            'usuario_fecha_nacimiento' => 'Fecha de Nacimiento',
             'authKey' => 'Auth Key',
             'accessToken' => 'Access Token',
+        		
+        		'usuario_password_confirmacion' => 'Vuelva a Introducir Contraseña',
+        		'usuario_email_confirmacion' => 'Vuelva a Introducir E-Mail',
         ];
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getComentarios()
-    {
-        return $this->hasMany(Comentarios::className(), ['usuario_id' => 'usuario_id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getContenidos()
-    {
-        return $this->hasMany(Contenidos::className(), ['usuario_id' => 'usuario_id']);
     }
 
     /**

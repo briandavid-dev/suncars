@@ -362,8 +362,8 @@ DashboardAsset::register($this);
 
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
-                PCNET-SOLUTIONS
-                <strong><a href="http://pcnet-solutions.com" target="_blank">www.pcnet-solutions.com</a></strong>
+                BMO SOLUCIONES TECNOLOGICAS
+                <strong><a href="https://bmosoluciones.com" target="_blank">www.bmosoluciones.com</a></strong>
 
             </div>
             &copy; <b><?php print Yii::$app->params['panelClienteNombre']; ?></b>

@@ -45,10 +45,13 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
            //  'categorie_id',
-            'categorie_nombre',
+            'categoria_nombre',
             
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+              'class' => 'yii\grid\ActionColumn',
+              'template' => '{update} {delete}'
+            ],
         ],
     ]); ?>
         <?php Pjax::end(); ?>
