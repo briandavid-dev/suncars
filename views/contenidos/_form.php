@@ -2,48 +2,194 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+Use yii\helpers\ArrayHelper;
+use app\models\Categorias;
+use app\models\Subcategorias;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Contenidos */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="contenidos-form">
+
+    <?php if (Yii::$app->session->hasFlash('success')): ?>
+      <div class="alert alert-success alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+       <?= Yii::$app->session->getFlash('success') ?>
+      </div>
+    <?php endif; ?>
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'contenido_titulo')->textarea(['rows' => 6]) ?>
+    <?= $form->errorSummary($model); ?>
 
-    <?= $form->field($model, 'contenido_texto')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'contenido_http')->textarea(['rows' => 6]) ?>
+<div class="row">
+    <div class="col-md-6">
+        <?= $form->field($model, 'contenido_titulo')->textInput()?>
+    
+        <div>&nbsp</div>
 
-    <?= $form->field($model, 'contenido_imagen_1')->textarea(['rows' => 6]) ?>
+        <?php echo $form->field($model, 'contenido_imagen_1')->fileInput(['class'=>'col-md-12 btn btn-info']); ?>
+        <div class="thumbnail">
+          <?php
+              $rutaImg1 = "#";
+              $classImg1 = "hidden";
+              if(!$model->isNewRecord){
+                $rutaImg1 = Url::base(true).'/themes/automovile/resources/images/contenidos/'.$model->contenido_imagen_1;
 
-    <?= $form->field($model, 'contenido_imagen_2')->textarea(['rows' => 6]) ?>
+                $classImg1 = "";
+            }
+            
+            if(empty($model->contenido_imagen_1)) $rutaImg1 = "";
+          ?>
+          <img id="preview_contenidos-contenido_imagen_1" src="<?php print $rutaImg1; ?>" alt="<?php print $model->contenido_imagen_1?>" title="<?php print $model->contenido_imagen_1?>" class="<?php print $classImg1; ?>" width="90" height="75" />
+        </div>
 
-    <?= $form->field($model, 'contenido_imagen_3')->textarea(['rows' => 6]) ?>
+         <span class="text-info small"><h4><strong>150px ancho x 200px alto <br> </strong> </h4></span>
+    
+        <div>&nbsp</div>
+        <?= $form->field($model, 'contenido_resumen')->textarea(['rows' => 6]) ?>
+        <div>&nbsp</div>
+        <div class="text-info small">Indica si el producto o servicio esta disponible</div>
+        
+        
 
-    <?= $form->field($model, 'contenido_precio')->textInput() ?>
+        <?php 
+            $model->contenido_disponibilidad = $model->isNewRecord ? true : $model->contenido_disponibilidad;
+            print $form->field($model, 'contenido_disponibilidad')->checkBox(array('value'=>'1')) 
+        ?>  
 
-    <?= $form->field($model, 'contenido_fecha_creacion')->textInput() ?>
 
-    <?= $form->field($model, 'contenido_tipo')->textarea(['rows' => 6]) ?>
+    </div>
+    <div class="col-md-6">
 
-    <?= $form->field($model, 'contenido_marca')->textInput(['maxlength' => true]) ?>
+        <?php
+        print 
+        $form->field($model, 'contenido_detalles')->widget(\yii\redactor\widgets\Redactor::className(), [
+            'clientOptions' => [
+                //'imageManagerJson' => ['/redactor/upload/image-json'],
+                'imageUpload' => ['/contenidos/upload'],
+                //'fileUpload' => ['/clientes/upload'],
+                'lang' => 'es',
+                'plugins' => ['clips', 'fontcolor','imagemanager','video']
+            ]
+        ])
 
-    <?= $form->field($model, 'contenido_categoria')->textarea(['rows' => 6]) ?>
+        ?>
 
-    <?= $form->field($model, 'contenido_subcategoria')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'contenidoscol')->textInput(['maxlength' => true]) ?>
+        <?php
+            echo $form->field($model, 'contenido_tipo')->dropDownList(
+            Yii::$app->params['contenidosTipos'],
+            ['prompt'=>'Seleccione...']);
+        ?>
 
-    <?= $form->field($model, 'usuario_id')->textInput() ?>
+        <?= $form->field($model, 'contenido_marca')->textInput() ?>
+
+    </div>  
+</div>
+<hr>
+<div>&nbsp;</div>
+<div class="row">
+  <div class="col-md-12">
+    <ul class="nav nav-tabs"  >
+        <li class="active"><a href="#"><b>Categorías</b></a></li>
+    </ul>
+    <div>&nbsp;</div>
+    
+      <script type="text/javascript">
+        function check(id,obj){
+          $('#cat_'+id).prop('checked', true);
+          //jQuery("#check_subcategorias")
+          var esdecategoria = jQuery(obj).attr("esdecategoria");
+          var countChekes = jQuery("[esdecategoria='"+esdecategoria+"']:checked").length;
+
+          /* si no hay ninguno chequeado o tildado */
+          if(countChekes < 1) $('#cat_'+id).prop('checked', false);
+        }
+      </script>
+      
+      <?php 
+      
+            $fieldCategorias = $model->contenido_categorias;
+            $fieldSubCategorias = $model->contenido_subcategorias;
+        
+            $arrayCategorias = ArrayHelper::map(Categorias::find()->all(), 'categoria_id','categoria_nombre');
+
+        foreach ($arrayCategorias as $keyCat => $valCat){
+
+          /* si la categoria esta en el campo categorias entonces marca el chechbox checked */
+          $checkedCat = '';
+          if(!empty($keyCat)){
+            if( strpos( $fieldCategorias, (string) $keyCat ) !== false ) {
+              $checkedCat = 'checked="checked"';
+            }
+          }
+          
+      ?>
+        <div>
+          <input type="checkbox" id="cat_<?php print $keyCat; ?>" name="Contenidos[contenido_categorias][]" value="<?php print $keyCat; ?>" <?php print $checkedCat; ?>"> 
+          <label for="cat_<?php print $keyCat; ?>" style="color: #0a3673; font-weight: normal;"> <?php print $valCat; ?> </label>
+        </div>
+        <div style="margin-left: 20px;">
+        <?php 
+        
+         $arraySubCategorias = ArrayHelper::map(Subcategorias::find()->where(['categoria_id' => $keyCat])->all(), 'subcategoria_id','subcategorie_name');
+
+    
+        foreach ($arraySubCategorias as $keySubCat => $valSubCat){
+          
+          /* si la categoria esta en el campo subcategorias entonces marca el chechbox checked */
+          $checkedSubCat = '';
+          if(!empty($keyCat)){
+            if( strpos( $fieldSubCategorias, (string) $keySubCat ) !== false ) {
+              $checkedSubCat = 'checked="checked"';
+            }
+          }
+          
+        ?>
+          <span style="background: #e6eff8;">
+            <input type="checkbox" id="subcat_<?php print $keySubCat; ?>" name="Contenidos[contenido_subcategorias][]" onchange="check('<?php print $keyCat; ?>',this)" value="<?php print $keySubCat; ?>" <?php print $checkedSubCat; ?>  esdecategoria="categoria<?php print $keyCat; ?>">  
+            <label for="subcat_<?php print $keySubCat; ?>" style="color: #2c7abd; font-weight: normal;"> <?php print $valSubCat; ?> </label>
+          </span> &nbsp;&nbsp;
+        <?php 
+          }
+        ?>
+        </div>
+      <?php 
+        }
+      ?>
+  </div>
+</div>
+ 
+
+    
+
+
+    
+    <div>&nbsp;</div><div>&nbsp;</div>
+    
+
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+
+        <?= Html::a(
+        $model->isNewRecord ? 'Crear' : 'Actualizar',
+        $model->isNewRecord ? ['contenidos/create'] : ['contenidos/update','id'=>$model->contenido_id],
+        [
+            'data' => [
+                'method' => 'post',
+              ],
+          'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary'
+          ])?>
+
     </div>
 
-    <?php ActiveForm::end(); ?>
+    
 
 </div>
+
+
+<?php ActiveForm::end(); ?>

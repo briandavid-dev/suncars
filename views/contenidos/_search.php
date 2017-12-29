@@ -19,11 +19,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'contenido_titulo') ?>
 
-    <?= $form->field($model, 'contenido_texto') ?>
+    <?= $form->field($model, 'contenido_resumen') ?>
 
-    <?= $form->field($model, 'contenido_http') ?>
+    <?= $form->field($model, 'contenido_detalles') ?>
 
-    <?= $form->field($model, 'contenido_imagen_1') ?>
+    <?= $form->field($model, 'contenido_disponibilidad') ?>
+
+    <?php // echo $form->field($model, 'contenido_http') ?>
+
+    <?php // echo $form->field($model, 'contenido_imagen_1') ?>
 
     <?php // echo $form->field($model, 'contenido_imagen_2') ?>
 
@@ -37,17 +41,15 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'contenido_marca') ?>
 
-    <?php // echo $form->field($model, 'contenido_categoria') ?>
+    <?php // echo $form->field($model, 'contenido_categorias') ?>
 
-    <?php // echo $form->field($model, 'contenido_subcategoria') ?>
-
-    <?php // echo $form->field($model, 'contenidoscol') ?>
+    <?php // echo $form->field($model, 'contenido_subcategorias') ?>
 
     <?php // echo $form->field($model, 'usuario_id') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(Yii::t('app', 'Reset'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

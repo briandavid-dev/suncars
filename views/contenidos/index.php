@@ -7,16 +7,29 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\ContenidosSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Contenidos';
+$this->title = Yii::t('app', 'Publicaciones');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="contenidos-index">
+<div class="box box-primary">
+    <div class="box-body">
+    <div class="title-bmo-10"> <?= Html::encode($this->title) ?></div>
 
-    <h1><?= Html::encode($this->title) ?></h1>
+
+    <hr class="hr-bmo-12 ">
+
+
+          <?php if (Yii::$app->session->hasFlash('success')): ?>
+              <div class="alert alert-success alert-dismissable">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+               <?= Yii::$app->session->getFlash('success') ?>
+              </div>
+          <?php endif; ?>
+
+    
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Contenidos', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('app', 'Crear Banner'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -24,23 +37,42 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'contenido_id',
-            'contenido_titulo:ntext',
-            'contenido_texto:ntext',
-            'contenido_http:ntext',
-            'contenido_imagen_1:ntext',
-            // 'contenido_imagen_2:ntext',
-            // 'contenido_imagen_3:ntext',
-            // 'contenido_precio',
-            // 'contenido_fecha_creacion',
-            // 'contenido_tipo:ntext',
-            // 'contenido_marca',
-            // 'contenido_categoria:ntext',
-            // 'contenido_subcategoria:ntext',
-            // 'contenidoscol',
-            // 'usuario_id',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'attribute' => 'contenido_imagen_1',
+                'header' => 'Imagen',
+                'format' => 'raw',
+                
+                'value' => function ($data) {
+
+                    $theme = $this->theme;
+
+                    $imagen = $theme->getUrl('resources/images/contenidos/').$data->contenido_imagen_1;
+
+                    $html = "<img height='50' src='$imagen' />";
+                    return $html;
+                }
+            ],
+            'contenido_titulo:ntext',
+
+            [
+                'attribute' => 'contenido_disponibilidad',
+                'format' => 'raw',
+                
+                'value' => function ($data) {
+
+
+                    $html = $data->contenido_disponibilidad ? "SI" : "NO" ;
+                    
+                    return $html;
+
+                }
+            ],
+            
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'template' => '{update} {delete}'
+            ],
         ],
     ]); ?>
 <?php Pjax::end(); ?></div>

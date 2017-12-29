@@ -20,6 +20,7 @@ use app\controllers\URLFriendly;
 use yii\helpers\html; 
 use yii\db\Expression;
 use app\controllers\MAILFriendly;
+use app\models\Solicitudes;
 
 class SiteController extends Controller
 {
@@ -138,8 +139,69 @@ class SiteController extends Controller
 
     {
 
-    $modelContact = new ContactForm();
-   $this->layout ="automovile"; 
+        $modelContact = new ContactForm();
+        $this->layout ="automovile"; 
+
+        $modelContenido = Contenidos::find()->where(['contenido_http' => $http])->one();  
+        if(!empty($modelContenido)){
+            
+
+            $modelSolicitudes = new Solicitudes();
+            
+            if(isset($_POST["Solicitudes"])){
+
+                $modelSolicitudes->attributes = $_POST ['Solicitudes'];
+
+
+                if ($modelSolicitudes->save ()){
+
+                    $nombre = $modelSolicitudes->solicitud_nombre;
+                    $email = $modelSolicitudes->solicitud_email;
+                    $mensaje = $modelSolicitudes->solicitud_mensaje;
+                    $telefono = $modelSolicitudes->solicitud_telefono;
+       
+                    $params = array(
+                        "nombre" => $nombre,
+                        "email" => $email,
+                        "mensaje" => $mensaje,
+                        "telefono" => $telefono,
+                        "titulo" => "SOLICITUD DE PRODUCTO O SERVICIO PARA SUNCARS",
+                        "para" => "suncarsinfo@gmail.com",
+                    );
+                    
+                    $MAILFriendly = new MAILFriendly();
+                    
+                    if(
+                        $MAILFriendly->enviar(
+                            $params["titulo"],
+                            $params["para"],
+                            "<".$params["email"].">",
+                            Yii::$app->params['dominioNombreMayusculaSinWWW']." <info@".Yii::$app->params['dominioNombreMinusculaSinWWW'].">",
+                            "layouts/mailcontacto",
+                            $params,
+                            true
+                        )
+                    ) {
+                        Yii::$app->session->setFlash('success', "Gracias. Recibiras una respuesta pronto");
+                    } else {
+                    //Yii::$app->session->setFlash('success', "Gracias");
+                    }
+
+             
+                  } else {
+
+                    //var_dump($modelrecuperacion->getErrors());
+                    //die();
+                  }
+
+            }
+
+
+            return $this->render('informacionservicio',array('model'=>$modelContenido,'modelSolicitudes'=>$modelSolicitudes));
+
+        }
+
+
     
                    switch($http){
                                 
@@ -158,13 +220,21 @@ class SiteController extends Controller
 
                                 case 'servicios':
                                 
-                                  return $this->render('servicios' ,array('tipo'=>'Servicios'));
+                                    $modelServicios = Contenidos::find()
+                                    ->where(['contenido_tipo' => 'servicio'])
+                                    ->all();
+                                
+                                    return $this->render('servicios',array('tipo'=>'Servicios', 'model'=>$modelServicios));
                                 
                                 break;
 
                                 case 'productos':
+
+                                    $modelProductos = Contenidos::find()
+                                    ->where(['contenido_tipo' => 'producto'])
+                                    ->all();
                                 
-                                  return $this->render('servicios',array('tipo'=>'Productos'));
+                                    return $this->render('servicios',array('tipo'=>'Productos', 'model'=>$modelProductos));
                                 
                                 break;
 

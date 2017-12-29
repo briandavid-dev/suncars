@@ -5,6 +5,8 @@
 return [
     //'adminEmail' => 'admin@example.com',
 	'usuariosPerfiles' => ['administrador'=>'administrador'],
+	
+	'contenidosTipos' => ['producto'=>'Producto','servicio'=>'Servicio'],
 	'bebidas' => ['1' => 'todos los dias' , '2' => 'fines de semana' , '3' => 'ocasiones especiales'],
 	'banners' => ['home' => 'home' , 'nosotros' => 'nosotros' , 'contacto' => 'contacto', 'enciclopedia' => 'enciclopedia' , 'centros' => 'centros de salud', 'medicos' => 'medicos' , 'seguros' => 'seguros', 'login' => 'login'],
 		
