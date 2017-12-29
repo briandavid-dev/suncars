@@ -140,6 +140,8 @@ class SiteController extends Controller
 
     $modelContact = new ContactForm();
    $this->layout ="automovile"; 
+
+
     
                    switch($http){
                                 
@@ -180,6 +182,44 @@ class SiteController extends Controller
                                 case 'contacto':
 
                                 return $this->render('contacto',array());
+                                
+                                break;
+
+                                case 'enviarmensaje':
+
+                                $para = "suncarsinfo@gmail.com";
+
+                                    $nombre= $_REQUEST['name'];
+                                    $email = $_REQUEST['email'];
+                                    $mensaje = $_REQUEST['msg'];
+            
+                                      $params = array(
+                                      "nombre" => $nombre,
+                                      "email" => $email,
+                                      "mensaje" => $mensaje,
+                                      );
+                                      
+                                       
+
+                                      $MAILFriendly = new MAILFriendly();
+                                      
+                                      if(
+                                      $MAILFriendly->enviar(
+                                      "NUEVA SOLICITUD DE CONTACTO DESDE SUNCARS",
+                                      "$para",
+                                      "<$email>",
+                                      Yii::$app->params['dominioNombreMayusculaSinWWW']." <info@".Yii::$app->params['dominioNombreMinusculaSinWWW'].">",
+                  "layouts/mailcontacto",
+                                      $params,
+                                      true
+                                      )
+                                      ) {
+                                      Yii::$app->session->setFlash('success', "Gracias. Recibiras una respuesta pronto");
+                                      } else {
+                                      Yii::$app->session->setFlash('success', "Gracias");
+                                      }
+
+                                    return $this->render('contacto',array());
                                 
                                 break;
 

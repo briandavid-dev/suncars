@@ -12,8 +12,10 @@ use yii\filters\VerbFilter;
 /**
  * PaginasGeneralesController implements the CRUD actions for PaginasGenerales model.
  */
-class PaginasGeneralesController extends Controller
+class PaginasgeneralesController extends Controller
 {
+    public $layout = 'panel';
+    
     /**
      * @inheritdoc
      */

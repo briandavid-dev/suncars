@@ -2,11 +2,13 @@
 <?php
 $theme = $this->theme;
 use app\models\Banners;
+use app\models\PaginasGenerales;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use yii\helpers\Url;
+
 ?>
 
 
@@ -157,29 +159,30 @@ use yii\helpers\Url;
             <section class=" content welcome-wrap padding-top-30 sm-horizontal-15">
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 welcome padding-left-none padding-bottom-40 scroll_effect fadeInUp">
-                        <h4 class="margin-bottom-25 margin-top-none" style="text-align:center"> ¿<strong>QUIÉNES</strong> SOMOS?</h4>
-                        <p  style="text-align: justify">Lorem ipsum dolor sit amet, falli tollit cetero te eos. Ea ullum liber aperiri mi, impetus
-                            ate philosophia ad duo, quem regione ne ius. Vis quis lobortis dissentias ex, in du aft 
-                            philosophia, malis necessitatibus no mei. Volumus sensibus qui ex, eum duis doming 
-                            ad. Modo liberavisse eu mel, no viris prompta sit. Pro labore sadipscing et. Ne peax
-                            egat usu te mel <span class="alternate-font">vivendo scriptorem</span>. Pro labore sadipscing et. Ne pertinax egat usu te 
-                            mel vivendo scriptorem.</p>
-                        <p>Cum ut tractatos imperdiet, no tamquam facilisi qui. Eum tibique consectetuer in, an 
-                            referrentur vis, vocent deseruisse ex mel. Sed te <span class="alternate-font">idque graecis</span>. Vel ne libris dolores, 
-                            mel graece mel vivendo scriptorem dolorum.</p>
+                        <h4 class="margin-bottom-25 margin-top-none" style="text-align:center"><strong>  <?php 
+                            $titulo = PaginasGenerales::find()->where("pagina_general_id = '1'")->one();
+                            print $titulo->pagina_general_titulo;
+                            
+                        ?> </strong> </h4>
+                        <p  style="text-align: justify">
+                            <?php 
+                            $principal = PaginasGenerales::find()->where("pagina_general_id = '1'")->one();
+                            print $principal->pagina_general_contenido_1;
+                            
+                        ?>
+                        </p>
                     </div>
 
                     <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 welcome padding-left-none padding-bottom-40 scroll_effect fadeInUp">
                          <h4 class="margin-bottom-25 margin-top-none">  <br></h4>
-                        <p  style="text-align: justify">Lorem ipsum dolor sit amet, falli tollit cetero te eos. Ea ullum liber aperiri mi, impetus
-                            ate philosophia ad duo, quem regione ne ius. Vis quis lobortis dissentias ex, in du aft 
-                            philosophia, malis necessitatibus no mei. Volumus sensibus qui ex, eum duis doming 
-                            ad. Modo liberavisse eu mel, no viris prompta sit. Pro labore sadipscing et. Ne peax
-                            egat usu te mel <span class="alternate-font">vivendo scriptorem</span>. Pro labore sadipscing et. Ne pertinax egat usu te 
-                            mel vivendo scriptorem.</p>
-                        <p>Cum ut tractatos imperdiet, no tamquam facilisi qui. Eum tibique consectetuer in, an 
-                            referrentur vis, vocent deseruisse ex mel. Sed te <span class="alternate-font">idque graecis</span>. Vel ne libris dolores, 
-                            mel graece mel vivendo scriptorem dolorum.</p>
+                        <p  style="text-align: justify">
+                            
+                             <?php 
+                            $principal = PaginasGenerales::find()->where("pagina_general_id = '1'")->one();
+                            print $principal->pagina_general_contenido_2;
+                            
+                        ?>
+                        </p>
                     </div>
 
 

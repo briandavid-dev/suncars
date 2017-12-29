@@ -247,6 +247,11 @@ DashboardAsset::register($this);
                             <li><a href="<?php print Url::to(['contenidos/index']);?>">Gestionar</a></li>
                         </ul>
                    	</li>
+                             <li>
+                                <?php print Html::a('<i class="fa fa-envelope-o"></i> Solicitudes', Url::to(['solicitudes/index']), ['data-method' => 'POST']) ?>
+
+                            </li>
+
             
                    
                 <li class=" treeview">
@@ -270,8 +275,8 @@ DashboardAsset::register($this);
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class=""><a href="<?php print Url::to(['paginasgenerales/create']);?>">Nuevo</a></li>
-                            <li class=""><a href="<?php print Url::to(['paginasgenerales/index']);?>">Gestionar</a></li>
+                            <li class=""><a href="<?php print Url::to(['paginasgenerales/update','id'=>'1']);?>">Página Principal</a></li>
+                            <li class=""><a href="<?php print Url::to(['paginasgenerales/update','id'=>'2']);?>">Quiénes Somos</a></li>
                                               
                         </ul>
                     </li>

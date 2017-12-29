@@ -3,61 +3,13 @@
 
     $theme = $this->theme;
 
+use yii\helpers\Url;
+use yii\bootstrap\Nav;
+use yii\bootstrap\NavBar;
+use yii\widgets\Breadcrumbs;
+
 ?>
 
-<!doctype html>
-<!--[if IE 7 ]> <html lang="en" class="ie7"> <![endif]-->
-<!--[if IE 8 ]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9 ]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!-->
-<html lang="en">
-<!--<![endif]-->
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="shortcut icon" href="images/favicon.ico">
-<title>Automotive Car Dealership &amp; Business HTML Template</title>
-<!-- Bootstrap core CSS -->
-<link href="./themes/automovile/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- HTML5 shiv and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-    <![endif]-->
-
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yellowtail%7COpen%20Sans%3A400%2C300%2C600%2C700%2C800" media="screen" />
-<!-- Custom styles for this template -->
-<link href="./themes/automovile/css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all">
-<link rel="stylesheet" href="./themes/automovile/css/flexslider.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="./themes/automovile/css/jquery.bxslider.css" type="text/css" media="screen" />
-<link href="./themes/automovile/css/jquery.fancybox.css" rel="stylesheet">
-<link href="./themes/automovile/css/jquery.selectbox.css" rel="stylesheet">
-<link href="./themes/automovile/css/style.css" rel="stylesheet">
-<link href="./themes/automovile/css/mobile.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="./themes/automovile/css/settings.css" media="screen" />
-<link href="./themes/automovile/css/animate.min.css" rel="stylesheet">
-<link href="./themes/automovile/css/ts.css" type="text/css" rel="stylesheet">
-<script type="text/javascript" src="./themes/automovile/js/jquery.min.js"></script>
-<script src="./themes/automovile/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="./themes/automovile/js/jquery.themepunch.tools.min.js"></script>
-<script type="text/javascript" src="./themes/automovile/js/jquery.themepunch.revolution.min.js"></script>
-<script type="text/javascript" src="./themes/automovile/js/wow.min.js"></script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key="></script>
-
-<!-- Twitter Feed Scripts 
-     Uncomment to activate
-
-<script type="text/javascript" src="js/twitter/jquery.tweet.js"></script>
-<script type="text/javascript" src="js/twitter/twitter_feed.js"></script> -->
-
-</head>
-
-
-
-<body>
 
 <section ><!--for other images just change the class name of this section block like, class="dynamic-image-2" and add css for the changed class-->
     <div class="container">
@@ -82,9 +34,11 @@
                 <!--MAP-->
                 <div class="find_map row clearfix">
                     <h2 class="margin-bottom-25 margin-top-none" style="color: #FFA019 !important;" >ENCUENTRANOS EN EL MAPA</h2>
-                    <div class="map margin-vertical-30">
-                        <div id='google-map-listing' class="contact" data-longitude='-79.38' data-latitude='43.65' data-zoom='7' style='height: 390px;'></div>
-                    </div>
+                 
+                   <iframe style="height: 400px !important;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1961.647149523409!2d-66.89122063633558!3d10.477450129132393!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x6826704df041439f!2sRepresentaciones+SunCars!5e0!3m2!1ses!2sve!4v1514572627459" width="1200" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        
+                    
+                 </div>
                 </div>
                 <!--MAP--> 
                 <!--CONTACT INFORMATION-->
@@ -108,7 +62,7 @@
                                 <ul class="margin-bottom-none">
                                     <li><i class="fa fa-phone"></i><strong>Teléfono:</strong> <span>(0212) 662 84 04 <br>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   (0212) 662 71 01</span></li>
                                     <li><i class="fa fa-phone"></i><strong>Telefax:</strong> <span>(0212) 693 75 65</span></li>
-                                    <li><i class="fa fa-envelope-o"></i><strong>Email:</strong> <a href="mailto:sales@company.com" style="color: #009FB6 !important;">sonia.m.aa@hotmail.com</a></li>
+                                    <li><i class="fa fa-envelope-o"></i><strong>Email:</strong> <a href="mailto:sales@company.com" style="color: #009FB6 !important;">suncarsinfo@gmail.com</a></li>
                                     <li class="padding-bottom-none"><i class="fa fa-laptop"></i><strong>Web:</strong> <a href="http://suncars.com" style="color: #009FB6!important;">www.suncars.com</a></li>
                                 </ul>
                             </div>
@@ -205,12 +159,17 @@
                             <h3 class="margin-bottom-25 margin-top-none" style="color: #FFA019 !important;">FORMULARIO DE CONTACTO</h3>
                             <div class="form_contact margin-bottom-20">
                                 <div id="result"></div>
+
+                                <form action="<?php print Url::base(true)."/enviarmensaje";  ?>" method="post">
+
                                 <fieldset id="contact_form">
-                                    <input type="text" name="name" class="form-control margin-bottom-25" placeholder="Nombre  (Requerido)" />
-                                    <input type="email" name="email" class="form-control margin-bottom-25" placeholder="Email  (Requerido)" />
-                                    <textarea name="msg" class="form-control margin-bottom-25 contact_textarea" placeholder="Mensaje" rows="7"></textarea>
+                                    <input type="text" name="name" class="form-control margin-bottom-25" placeholder="Nombre  (Requerido)"  required/>
+                                    <input type="email" name="email" class="form-control margin-bottom-25" placeholder="Email  (Requerido)"  required/>
+                                    <textarea name="msg" class="form-control margin-bottom-25 contact_textarea" placeholder="Mensaje" required rows="7"></textarea>
                                     <input style="background-color: #009FB6 !important;" id="submit_btn" type="submit" value="Enviar Mensaje">
                                 </fieldset>
+                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -231,7 +190,7 @@
 
 
 <div class="clearfix"></div>
-
+<!--
 <script src="./themes/automovile/
 js/retina.js"></script> 
 <script src="./themes/automovile/
@@ -241,7 +200,7 @@ js/jquery.fancybox.js"></script>
 <script src="./themes/automovile/
 js/modernizr.custom.js"></script> 
 <!-- jQuery --> 
-
+<!--
 <script type="text/javascript">
 $(document).ready(function() {
     $("#submit_btn").click(function() { 
@@ -292,7 +251,7 @@ $(document).ready(function() {
                 $("#result").hide().html('<div class="error">'+err.statusText+'</div>').slideDown();
             });
         }
-    });
+    });   
     
     //reset previously set border colors and hide all message on .keyup()
     $("#contact_form input, #contact_form textarea").keyup(function() { 
@@ -302,7 +261,7 @@ $(document).ready(function() {
     
 });
 </script> 
-<!-- FlexSlider --> 
+<!-- FlexSlider
 <script defer src="./themes/automovile/
 js/jquery.flexslider.js"></script> 
 <script src="./themes/automovile/
@@ -313,5 +272,4 @@ js/jquery.selectbox-0.2.js" type="text/javascript"></script>
 js/jquery.mousewheel.js"></script> 
 <script type="text/javascript" src="./themes/automovile/
 js/jquery.easing.js"></script>
-</body>
-</html>
+ --> 
