@@ -46,11 +46,21 @@ use yii\widgets\ActiveForm;
                             <div align="center" class="flexslider" id="home-slider-canvas" >
                                 <ul class="slides">
 
-                                    <?php
+<?php
                                     $theme = $this->theme;
                                     $imagen = "";
-                                    if(!empty($model->contenido_imagen_1)){
-                                        $imagen = $theme->getUrl('resources/images/contenidos/').$model->contenido_imagen_1;  
+                                    $imagen2 = "";
+                                    $imagen3 = "";
+                                    $imagen4 = "";
+                                    $imagen5 = "";    
+
+                                     if(!empty($model->contenido_imagen_1)){
+                                        $imagen = $theme->getUrl('resources/images/contenidos/').$model->contenido_imagen_1;
+                                         $imagen2 = $theme->getUrl('resources/images/contenidos/').$model->contenido_imagen_2;
+                                         $imagen3 = $theme->getUrl('resources/images/contenidos/').$model->contenido_imagen_3;
+                                         $imagen4 = $theme->getUrl('resources/images/contenidos/').$model->contenido_imagen_4; 
+                                         $imagen5 = $theme->getUrl('resources/images/contenidos/').$model->contenido_imagen_5;
+
                                     }
                                     
 
@@ -58,6 +68,14 @@ use yii\widgets\ActiveForm;
                                     ?>
 
                                     <li data-thumb="<?php print $imagen; ?>"> <img  src="<?php print $imagen; ?>" alt="" data-full-image="<?php print $imagen; ?>" /> </li>
+
+                                    <li data-thumb="<?php print $imagen2; ?>"> <img  src="<?php print $imagen2; ?>" alt="" data-full-image="<?php print $imagen2; ?>" /> </li>
+
+                                    <li data-thumb="<?php print $imagen3; ?>"> <img  src="<?php print $imagen3; ?>" alt="" data-full-image="<?php print $imagen3; ?>" /> </li>
+
+                                    <li data-thumb="<?php print $imagen4; ?>"> <img  src="<?php print $imagen4; ?>" alt="" data-full-image="<?php print $imagen4; ?>" /> </li>
+
+                                    <li data-thumb="<?php print $imagen5; ?>"> <img  src="<?php print $imagen5; ?>" alt="" data-full-image="<?php print $imagen5; ?>" /> </li>
 
                                     <!--
                                     <li data-thumb="themes/automovile/images/boxster4_slide.jpg"> <img src="themes/automovile/images/boxster4_slide.jpg" alt="" data-full-image="themes/automovile/images/boxster4.jpg" /> </li>
@@ -80,10 +98,44 @@ use yii\widgets\ActiveForm;
                                 </ul>
                             </div>
                         </section>
-                        <!--
+                        
                         <section align="center" class="home-slider-thumbs">
                             <div align="center" class="flexslider" id="home-slider-thumbs">
                                 <ul class="slides">
+
+
+<?php
+                                    $theme = $this->theme;
+                                    $imagen = "";
+                                    $imagen2 = "";
+                                    $imagen3 = "";
+                                    $imagen4 = "";
+                                    $imagen5 = "";    
+
+                                     if(!empty($model->contenido_imagen_1)){
+                                        $imagen = $theme->getUrl('resources/images/contenidos/').$model->contenido_imagen_1;
+                                         $imagen2 = $theme->getUrl('resources/images/contenidos/').$model->contenido_imagen_2;
+                                         $imagen3 = $theme->getUrl('resources/images/contenidos/').$model->contenido_imagen_3;
+                                         $imagen4 = $theme->getUrl('resources/images/contenidos/').$model->contenido_imagen_4; 
+                                         $imagen5 = $theme->getUrl('resources/images/contenidos/').$model->contenido_imagen_5;
+
+                                    }
+                                    
+
+
+                                    ?>
+
+                                    <li data-thumb="<?php print $imagen; ?>"> <img  src="<?php print $imagen; ?>" alt="" data-full-image="<?php print $imagen; ?>" /> </li>
+
+                                    <li data-thumb="<?php print $imagen2; ?>"> <img  src="<?php print $imagen2; ?>" alt="" data-full-image="<?php print $imagen2; ?>" /> </li>
+
+                                    <li data-thumb="<?php print $imagen3; ?>"> <img  src="<?php print $imagen3; ?>" alt="" data-full-image="<?php print $imagen3; ?>" /> </li>
+
+                                    <li data-thumb="<?php print $imagen4; ?>"> <img  src="<?php print $imagen4; ?>" alt="" data-full-image="<?php print $imagen4; ?>" /> </li>
+
+                                    <li data-thumb="<?php print $imagen5; ?>"> <img  src="<?php print $imagen5; ?>" alt="" data-full-image="<?php print $imagen5; ?>" /> </li>
+
+                                    <!--
                                     <li data-thumb="themes/automovile/images/thumbnail1.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail1.jpg" alt="" /></a> </li>
                                     <li data-thumb="themes/automovile/images/thumbnail2.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail2.jpg" alt="" /></a> </li>
                                     <li data-thumb="themes/automovile/images/thumbnail3.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail3.jpg" alt="" /></a> </li>
@@ -95,13 +147,13 @@ use yii\widgets\ActiveForm;
                                     <li data-thumb="themes/automovile/images/thumbnail8.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail8.jpg" alt="" /></a> </li>
                                     <li data-thumb="themes/automovile/images/thumbnail9.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail9.jpg" alt="" /></a> </li>
                                     <li data-thumb="themes/automovile/images/thumbnail10.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail10.jpg" alt="" /></a> </li>
-                                    <li data-thumb="themes/automovile/images/thumbnail14.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail14.jpg" alt="" /></a> </li>
+                                    <li data-thumb="themes/automovile/images/thumbnail14.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail14.jpg" alt="" /></a> </li>-->
                                     
 
                                 </ul>
                             </div>
                         </section>
-                        -->
+                        
                     </div>
 
                 </div>

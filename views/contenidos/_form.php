@@ -28,8 +28,29 @@ use yii\helpers\Url;
 <div class="row">
     <div class="col-md-6">
         <?= $form->field($model, 'contenido_titulo')->textInput()?>
-    
+        
+          <?php
+            echo $form->field($model, 'contenido_tipo')->dropDownList(
+            Yii::$app->params['contenidosTipos'],
+            ['prompt'=>'Seleccione...']);
+        ?>
+
+
+        <?= $form->field($model, 'contenido_marca')->textInput() ?>
+
+ <div>&nbsp</div>
+
+ <div class="text-info small">Indica si el producto o servicio esta disponible </div>
+        
+        
+
+        <?php 
+            $model->contenido_disponibilidad = $model->isNewRecord ? true : $model->contenido_disponibilidad;
+            print $form->field($model, 'contenido_disponibilidad')->checkBox(array('value'=>'1')) 
+        ?>  
+
         <div>&nbsp</div>
+        
 
         <?php echo $form->field($model, 'contenido_imagen_1')->fileInput(['class'=>'col-md-12 btn btn-info']); ?>
         <div class="thumbnail">
@@ -48,19 +69,54 @@ use yii\helpers\Url;
         </div>
 
          <span class="text-info small"><h4><strong>762px ancho x 456px alto <br> </strong> </h4></span>
-    
-        <div>&nbsp</div>
-        <?= $form->field($model, 'contenido_resumen')->textarea(['rows' => 6]) ?>
-        <div>&nbsp</div>
-        <div class="text-info small">Indica si el producto o servicio esta disponible</div>
-        
+  
         
 
-        <?php 
-            $model->contenido_disponibilidad = $model->isNewRecord ? true : $model->contenido_disponibilidad;
-            print $form->field($model, 'contenido_disponibilidad')->checkBox(array('value'=>'1')) 
-        ?>  
+         <div>&nbsp</div>
 
+         <?php echo $form->field($model, 'contenido_imagen_3')->fileInput(['class'=>'col-md-12 btn btn-info']); ?>
+        <div class="thumbnail">
+          <?php
+              $rutaImg3 = "#";
+              $classImg3 = "hidden";
+              if(!$model->isNewRecord){
+                $rutaImg3 = Url::base(true).'/themes/automovile/resources/images/contenidos/'.$model->contenido_imagen_3;
+
+                $classImg3 = "";
+            }
+            
+            if(empty($model->contenido_imagen_3)) $rutaImg3 = "";
+          ?>
+          <img id="preview_contenidos-contenido_imagen_3" src="<?php print $rutaImg3; ?>" alt="<?php print $model->contenido_imagen_3?>" title="<?php print $model->contenido_imagen_3?>" class="<?php print $classImg3; ?>" width="90" height="75" />
+        </div>
+
+         <span class="text-info small"><h4><strong>762px ancho x 456px alto <br> </strong> </h4></span>
+
+        
+
+         <div>&nbsp</div>
+
+         <?php echo $form->field($model, 'contenido_imagen_5')->fileInput(['class'=>'col-md-12 btn btn-info']); ?>
+        <div class="thumbnail">
+          <?php
+              $rutaImg5 = "#";
+              $classImg5 = "hidden";
+              if(!$model->isNewRecord){
+                $rutaImg5 = Url::base(true).'/themes/automovile/resources/images/contenidos/'.$model->contenido_imagen_5;
+
+                $classImg5 = "";
+            }
+            
+            if(empty($model->contenido_imagen_5)) $rutaImg1 = "";
+          ?>
+          <img id="preview_contenidos-contenido_imagen_5" src="<?php print $rutaImg5; ?>" alt="<?php print $model->contenido_imagen_5?>" title="<?php print $model->contenido_imagen_5?>" class="<?php print $classImg5; ?>" width="90" height="75" />
+        </div>
+
+         <span class="text-info small"><h4><strong>762px ancho x 456px alto <br> </strong> </h4></span>
+
+         <div>&nbsp</div>
+
+       
 
     </div>
     <div class="col-md-6">
@@ -80,13 +136,49 @@ use yii\helpers\Url;
         ?>
 
 
-        <?php
-            echo $form->field($model, 'contenido_tipo')->dropDownList(
-            Yii::$app->params['contenidosTipos'],
-            ['prompt'=>'Seleccione...']);
-        ?>
+         <?= $form->field($model, 'contenido_resumen')->textarea(['rows' => 6]) ?>
 
-        <?= $form->field($model, 'contenido_marca')->textInput() ?>
+        
+         <div>&nbsp</div>
+
+ <?php echo $form->field($model, 'contenido_imagen_2')->fileInput(['class'=>'col-md-12 btn btn-info']); ?>
+        <div class="thumbnail">
+          <?php
+              $rutaImg2 = "#";
+              $classImg2 = "hidden";
+              if(!$model->isNewRecord){
+                $rutaImg2 = Url::base(true).'/themes/automovile/resources/images/contenidos/'.$model->contenido_imagen_2;
+
+                $classImg2 = "";
+            }
+            
+            if(empty($model->contenido_imagen_2)) $rutaImg2 = "";
+          ?>
+          <img id="preview_contenidos-contenido_imagen_2" src="<?php print $rutaImg2; ?>" alt="<?php print $model->contenido_imagen_2?>" title="<?php print $model->contenido_imagen_2?>" class="<?php print $classImg2; ?>" width="90" height="75" />
+        </div>
+
+         <span class="text-info small"><h4><strong>762px ancho x 456px alto <br> </strong> </h4></span>
+ <div>&nbsp</div>
+
+         <?php echo $form->field($model, 'contenido_imagen_4')->fileInput(['class'=>'col-md-12 btn btn-info']); ?>
+        <div class="thumbnail">
+          <?php
+              $rutaImg4 = "#";
+              $classImg4 = "hidden";
+              if(!$model->isNewRecord){
+                $rutaImg4 = Url::base(true).'/themes/automovile/resources/images/contenidos/'.$model->contenido_imagen_4;
+
+                $classImg4 = "";
+            }
+            
+            if(empty($model->contenido_imagen_4)) $rutaImg4 = "";
+          ?>
+          <img id="preview_contenidos-contenido_imagen_4" src="<?php print $rutaImg4; ?>" alt="<?php print $model->contenido_imagen_4?>" title="<?php print $model->contenido_imagen_4?>" class="<?php print $classImg4; ?>" width="90" height="75" />
+        </div>
+
+         <span class="text-info small"><h4><strong>762px ancho x 456px alto <br> </strong> </h4></span>
+
+
 
     </div>  
 </div>
