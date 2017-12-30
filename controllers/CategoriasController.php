@@ -8,6 +8,7 @@ use app\models\CategoriasSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\controllers\URLFriendly;
 
 /**
  * CategoriasController implements the CRUD actions for Categorias model.
@@ -66,18 +67,34 @@ class CategoriasController extends Controller
     {
         $model = new Categorias();
 
+        if(isset($_POST["Categorias"])){
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->attributes = $_POST["Categorias"];
 
+            $URLFriendly = new URLFriendly();
+            $model->categoria_http = $URLFriendly->_new($model->categoria_nombre);
+
+
+            if ($model->save()) {
+
+            /* actualiza el codigo del post */
+                    $modelCategorias = Categorias::findOne($model->categoria_id);
+                    $codigo = str_pad($model->categoria_id, 5, "0", STR_PAD_LEFT);
+                    $modelCategorias->categoria_codigo = "$codigo";
+                    
+                    if ($modelCategorias->save ()){
+                     }
 
             Yii::$app->session->setFlash('success', "<span class='fa fa-check'></span> Exito");
             return $this->redirect(['create']);
 
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+            }
         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+        
     }
 
     /**
@@ -90,14 +107,36 @@ class CategoriasController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', "<span class='fa fa-check'></span> Exito");
-            return $this->redirect(['update', 'id' => $model->categoria_id]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+        if(isset($_POST["Categorias"])){
+
+            $model->attributes = $_POST["Categorias"];
+
+            $URLFriendly = new URLFriendly();
+            $model->categoria_http = $URLFriendly->_new($model->categoria_nombre);
+
+
+            if ($model->save()) {
+
+            /* actualiza el codigo del post */
+                    $modelCategorias = Categorias::findOne($model->categoria_id);
+                    $codigo = str_pad($model->categoria_id, 5, "0", STR_PAD_LEFT);
+                    $modelCategorias->categoria_codigo = "$codigo";
+                    
+                    if ($modelCategorias->save ()){
+                     }
+
+                Yii::$app->session->setFlash('success', "<span class='fa fa-check'></span> Exito");
+                return $this->redirect(['update', 'id' => $model->categoria_id]);
+
+            }
         }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
+
+
+        
     }
 
     /**

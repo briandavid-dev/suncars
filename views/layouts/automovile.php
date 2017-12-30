@@ -320,7 +320,7 @@ label {
 
                                 foreach ($modelCategorias as $keyCat => $valCat) {
                             ?>
-                                <a href="<?php print Url::base(true).$valCat->categoria_http; ?>"><?php print $valCat->categoria_nombre; ?></a><br>
+                                <a href="<?php print Url::base(true)."/productos-servicios?cat=".$valCat->categoria_http."&cod=".$valCat->categoria_codigo."&title=Productos y Servicios"; ?>"><?php print $valCat->categoria_nombre; ?></a><br>
 
                             <?php
                                 }

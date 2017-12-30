@@ -147,7 +147,8 @@ class SiteController extends Controller
                                 
                                  
                      
-       Yii::$app->session->setFlash('success', "Su solicitud fue enviada exitosamente! Nos estaremos comunicando con usted lo mas pronto posible !");
+       /*Yii::$app->session->setFlash('success', "Su solicitud fue enviada exitosamente! Nos estaremos comunicando con usted lo mas pronto posible !");*/
+
          return $this->render('index',array('model'=>$modelProductos,'model'=>$modelServicios));     
         
      }
@@ -326,6 +327,21 @@ class SiteController extends Controller
                                 
                                 break;
 
+                                case 'productos-servicios':
+                                
+                                    Yii::$app->session['menu'] = 'inicio';
+
+                                    $codigo = $_REQUEST["cod"];
+                                    $titulo = $_REQUEST["title"];
+
+                                    $modelContenidos = Contenidos::find()
+                                    ->where("contenido_categorias LIKE '%$codigo%' ")
+                                    //->orderBy(['post_date' => SORT_DESC])
+                                    ->limit(50)->all();
+
+                                    return $this->render('servicios',array('tipo'=>$titulo, 'model'=>$modelContenidos));
+                                
+                                break;
 
                                 case 'informacionservicio':
                                 
