@@ -85,13 +85,17 @@ class ContenidosController extends Controller
 
             $rnd1 = rand(0,999).rand(0,999);
             $rnd2 = rand(0,999).rand(0,999);
-            $rnd  = $rnd1.$rnd2;
+            $rnd3 = rand(0,999).rand(0,999);
+            $rnd4 = rand(0,999).rand(0,999);
+            $rnd5 = rand(0,999).rand(0,999);          
+            
 
+            var_dump($rnd1); die();
                 
             $uploadedFile1=UploadedFile::getInstance($model,'contenido_imagen_1');
             
             if(!empty($uploadedFile1)) {
-                $fileName1 = "$rnd.jpg";  // random number + file name
+                $fileName1 = "$rnd1.jpg";  // random number + file name
                 $model->contenido_imagen_1 = $fileName1;
                 $path1 = $themeBasePath.'/resources/images/contenidos/'.$fileName1;
             }
@@ -99,13 +103,13 @@ class ContenidosController extends Controller
              $uploadedFile2=UploadedFile::getInstance($model,'contenido_imagen_2');
             
             if(!empty($uploadedFile2)) {
-                $fileName2 = "$rnd.jpg";  // random number + file name
+                $fileName2 = "$rnd2.jpg";  // random number + file name
                 $model->contenido_imagen_2 = $fileName2;
                 $path2 = $themeBasePath.'/resources/images/contenidos/'.$fileName2;
             }
 
             if(!empty($uploadedFile3)) {
-                $fileName3 = "$rnd.jpg";  // random number + file name
+                $fileName3 = "$rnd3.jpg";  // random number + file name
                 $model->contenido_imagen_3 = $fileName3;
                 $path3 = $themeBasePath.'/resources/images/contenidos/'.$fileName3;
             }
@@ -113,7 +117,7 @@ class ContenidosController extends Controller
             $uploadedFile4=UploadedFile::getInstance($model,'contenido_imagen_4');
             
             if(!empty($uploadedFile4)) {
-                $fileName4 = "$rnd.jpg";  // random number + file name
+                $fileName4 = "$rnd4.jpg";  // random number + file name
                 $model->contenido_imagen_4 = $fileName4;
                 $path4 = $themeBasePath.'/resources/images/contenidos/'.$fileName4;
             }
@@ -122,7 +126,7 @@ class ContenidosController extends Controller
              $uploadedFile5=UploadedFile::getInstance($model,'contenido_imagen_5');
             
             if(!empty($uploadedFile5)) {
-                $fileName5 = "$rnd.jpg";  // random number + file name
+                $fileName5 = "$rnd5.jpg";  // random number + file name
                 $model->contenido_imagen_5 = $fileName5;
                 $path5 = $themeBasePath.'/resources/images/contenidos/'.$fileName5;
             }
@@ -146,6 +150,8 @@ class ContenidosController extends Controller
                 }
                 $model->contenido_subcategorias = implode(",", $arraySubCategorias);
             }
+
+            var_dump($model->attributes); die();
 
             $URLFriendly = new URLFriendly();
             $model->contenido_http = $URLFriendly->_new($model->contenido_titulo);
@@ -226,13 +232,17 @@ class ContenidosController extends Controller
 
             $rnd1 = rand(0,999).rand(0,999);
             $rnd2 = rand(0,999).rand(0,999);
-            $rnd  = $rnd1.$rnd2;
+            $rnd3 = rand(0,999).rand(0,999);
+            $rnd4 = rand(0,999).rand(0,999);
+            $rnd5 = rand(0,999).rand(0,999);
 
+            
+           
                 
             $uploadedFile1=UploadedFile::getInstance($model,'contenido_imagen_1');
              
             if(!empty($uploadedFile1)) {
-                $fileName1 = "$rnd.jpg";  // random number + file name
+                $fileName1 = "$rnd1.jpg";  // random number + file name
                 $model->contenido_imagen_1 = $fileName1;
                 $path1 = $themeBasePath.'/resources/images/contenidos/'.$fileName1;
             } else {
@@ -242,7 +252,7 @@ class ContenidosController extends Controller
             $uploadedFile2=UploadedFile::getInstance($model,'contenido_imagen_2');
             
             if(!empty($uploadedFile2)) {
-                $fileName2 = "$rnd.jpg";  // random number + file name
+                $fileName2 = "$rnd2.jpg";  // random number + file name
                 $model->contenido_imagen_2 = $fileName2;
                 $path2 = $themeBasePath.'/resources/images/contenidos/'.$fileName2;
             }   else {
@@ -252,7 +262,7 @@ class ContenidosController extends Controller
             $uploadedFile3=UploadedFile::getInstance($model,'contenido_imagen_3');
 
             if(!empty($uploadedFile3)) {
-                $fileName3 = "$rnd.jpg";  // random number + file name
+                $fileName3 = "$rnd3.jpg";  // random number + file name
                 $model->contenido_imagen_3 = $fileName3;
                 $path3 = $themeBasePath.'/resources/images/contenidos/'.$fileName3;
             }   else {
@@ -263,7 +273,7 @@ class ContenidosController extends Controller
             $uploadedFile4=UploadedFile::getInstance($model,'contenido_imagen_4');
             
             if(!empty($uploadedFile4)) {
-                $fileName4 = "$rnd.jpg";  // random number + file name
+                $fileName4 = "$rnd4.jpg";  // random number + file name
                 $model->contenido_imagen_4 = $fileName4;
                 $path4 = $themeBasePath.'/resources/images/contenidos/'.$fileName4;
             }   else {
@@ -274,7 +284,7 @@ class ContenidosController extends Controller
              $uploadedFile5=UploadedFile::getInstance($model,'contenido_imagen_5');
             
             if(!empty($uploadedFile5)) {
-                $fileName5 = "$rnd.jpg";  // random number + file name
+                $fileName5 = "$rnd5.jpg";  // random number + file name
                 $model->contenido_imagen_5 = $fileName5;
                 $path5 = $themeBasePath.'/resources/images/contenidos/'.$fileName5;
             }   else {
@@ -305,8 +315,6 @@ class ContenidosController extends Controller
             $URLFriendly = new URLFriendly();
             $model->contenido_http = $URLFriendly->_new($model->contenido_titulo);
 
-
-//var_dump($model->contenido_disponibilidad);die();
 
 
             if($model->save()){
