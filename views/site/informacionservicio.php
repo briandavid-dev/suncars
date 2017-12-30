@@ -215,7 +215,7 @@ use yii\widgets\ActiveForm;
             <div>&nbsp;</div>
             <div class="row">
                 <div class="col-md-12">
-                    <h3>Preguntanos sobre este <?php print $model->contenido_tipo; ?></h3>
+                    <h3>Pregúntanos sobre este <?php print $model->contenido_tipo; ?></h3>
                 </div>
 
                 <div class="col-md-12">
@@ -225,11 +225,11 @@ use yii\widgets\ActiveForm;
 
                     <?= $form->field($modelSolicitudes, 'solicitud_nombre')->textInput(['rows' => 6]) ?>
 
-                    <?= $form->field($modelSolicitudes, 'solicitud_email')->textInput(['rows' => 6]) ?>
+                    <?= $form->field($modelSolicitudes, 'solicitud_email')->textInput(['rows' => 6])->input('email')  ?>
 
                     <?= $form->field($modelSolicitudes, 'solicitud_mensaje')->textarea(['rows' => 6]) ?>
 
-                    <?= $form->field($modelSolicitudes, 'solicitud_telefono')->textInput(['rows' => 6]) ?>
+                    <?= $form->field($modelSolicitudes, 'solicitud_telefono')->textInput(['rows' => 6])->input('number') ?>
 
                     <?= $form->field($modelSolicitudes, 'contenido_id')->hiddenInput(['value'=>$model->contenido_id])->label(false);?>
 
