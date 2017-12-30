@@ -229,7 +229,7 @@ use yii\widgets\ActiveForm;
 
                     <?= $form->field($modelSolicitudes, 'solicitud_mensaje')->textarea(['rows' => 6]) ?>
 
-                    <?= $form->field($modelSolicitudes, 'solicitud_telefono')->textInput(['rows' => 6]) ?>
+                    <?= $form->field($modelSolicitudes, 'solicitud_telefono')->textInput(['rows' => 6])->input('number') ?>
 
                     <?= $form->field($modelSolicitudes, 'contenido_id')->hiddenInput(['value'=>$model->contenido_id])->label(false);?>
 
