@@ -142,14 +142,14 @@ class SiteController extends Controller
   		$this->layout ="automovile"; 
 
 
-        $modelProductos = Contenidos::find()->where(["contenido_tipo"=>"servicio"])->limit(3)->all();
-        $modelServicios = Contenidos::find()->where(["contenido_tipo"=>"producto"])->limit(10)->all();
+        $modelProductos = Contenidos::find()->where(["contenido_tipo"=>"producto"])->limit(10)->all();
+        $modelServicios = Contenidos::find()->where(["contenido_tipo"=>"servicio"])->limit(3)->all();
                                 
                                  
                      
        /*Yii::$app->session->setFlash('success', "Su solicitud fue enviada exitosamente! Nos estaremos comunicando con usted lo mas pronto posible !");*/
 
-         return $this->render('index',array('model'=>$modelProductos,'model'=>$modelServicios));     
+         return $this->render('index',array('model'=>$modelServicios,'modelProductos'=>$modelProductos));     
         
      }
 
