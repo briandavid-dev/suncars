@@ -60,10 +60,11 @@ use yii\widgets\Breadcrumbs;
                             </div>
                             <div class="address clearfix address_details margin-right-25 padding-bottom-40">
                                 <ul class="margin-bottom-none">
-                                    <li><i class="fa fa-phone"></i><strong>Teléfono:</strong> <span>(0212) 662 84 04 <br>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;   (0212) 662 71 01</span></li>
+                                    <li ><i class="fa fa-phone"></i><strong>Teléfono:</strong> <span >(0212) 662 84 04 </span></li>
+                                    <li ><i class="fa fa-phone"></i><strong style="color: #FFFFFF">Teléfono:</strong> <span >(0212) 662 71 01</span></li>
                                     <li><i class="fa fa-phone"></i><strong>Telefax:</strong> <span>(0212) 693 75 65</span></li>
-                                    <li><i class="fa fa-envelope-o"></i><strong>Email:</strong> <a href="mailto:sales@company.com" style="color: #009FB6 !important;">suncarsinfo@gmail.com</a></li>
-                                    <li class="padding-bottom-none"><i class="fa fa-laptop"></i><strong>Web:</strong> <a href="http://suncars.com" style="color: #009FB6!important;">www.suncars.com</a></li>
+                                    <li ><i class="fa fa-envelope-o"></i><strong>Email:</strong> <a href="mailto:sales@company.com" style="color: #009FB6 !important;">suncarsinfo@gmail.com</a></li>
+                                    <li class="padding-bottom-none"><i class="fa fa-laptop"></i><strong>Web:</strong> <a href="http://suncars.com.ve" style="color: #009FB6!important;">www.suncars.com.ve</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -86,7 +87,7 @@ use yii\widgets\Breadcrumbs;
                                                 </tr>
                                                 <tr>
                                                     <td>Martes:</td>
-                                                    <td>8:00am - 9:00pm</td>
+                                                    <td>8:00am - 5:00pm</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Miércoles:</td>
@@ -94,15 +95,15 @@ use yii\widgets\Breadcrumbs;
                                                 </tr>
                                                 <tr>
                                                     <td>Jueves:</td>
-                                                    <td>8:00am - 9:00pm</td>
+                                                    <td>8:00am - 5:00pm</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Viernes:</td>
-                                                    <td>8:00am - 6:00pm</td>
+                                                    <td>8:00am - 5:00pm</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Sabado:</td>
-                                                    <td>9:00am - 5:00pm</td>
+                                                    <td>8:00am - 5:00pm</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Domingo:</td>
