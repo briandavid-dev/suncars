@@ -1212,11 +1212,11 @@ header.affix .bottom-header .navbar-default .navbar-brand .logo .secondary_text 
 
 .select-input {
 }
-
+/*
 .select-input input[type="text"] {
 	width: 252px;
 }
-
+*/
 .select-form .max-dropdown {
 	width: 100%;
 	margin-bottom: 4px;
@@ -2638,7 +2638,7 @@ footer.design_2 h4 {
 /*  K. Form Styles
 ----------------------------*/
 
-
+/*
 input, select, textarea {
 	margin: 0 0 5px 0;
 	padding: 0;
@@ -2649,7 +2649,7 @@ input, select, textarea {
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
-
+/*
 input[type="text"], textarea, textarea[name="msg"], select, div.styled, input[type="file"], input[type="email"] {
 	float: left;
 	width: 108px;
@@ -2685,7 +2685,7 @@ input[type="text"], textarea, textarea[name="msg"], select, div.custom-select, i
 	text-shadow: 1px 0 0 0 #fff;
 	padding: 1px 4px;
 }
-
+*/
 div.custom-select, select, input[type="file"]:after {
 	background: url(../images/custom-select.png) no-repeat center right;
 	border-radius: 4px 4px;
@@ -2752,7 +2752,7 @@ input[type="file"]:after {
 	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 	border-radius: 4px;
 }
-
+/*
 input[type="file"]:active:after {
 	box-shadow: none;
 }
@@ -2772,7 +2772,7 @@ label:before {
 	height: 20px;
 	background-image: url(../images/formelements.png);
 }
-
+/*
 input[type="checkbox"] + label:before {
 	background-position: 0 -24px;
 }
@@ -2788,7 +2788,7 @@ input[type="radio"] + label:before {
 input[type="radio"]:checked + label:before {
 	background-position: -25px 0;
 }
-
+*/
 .ie8 label:before {
 	display: none;
 	content: none;
@@ -2818,14 +2818,14 @@ input[type="text"], textarea, select, div.styled, div.custom-select {
 .full-width {
 	width: 100% !important;
 }
-
+/*
 label {
 	margin: 0 !important;
 	position: absolute;
 	top: 0;
 	right: -47px;
 }
-
+*/
 div.custom-select {
 	margin-right: 6px;
 }
@@ -6838,7 +6838,7 @@ img.aligncenter {
 	color: #2d2d2d;
 	margin-bottom: 15px;
 }
-
+/*
 .form_contact form input[type="text"], .form_contact form input[type="email"] {
 	width: 58%;
 }
@@ -6879,7 +6879,7 @@ fieldset#contact_form input[type="text"], fieldset#contact_form input[type="emai
 .form_contact form input[type="submit"] {
 	padding: 4px 9px;
 }
-
+*/
 
 
 /*  N. Boxed & Margin Layout

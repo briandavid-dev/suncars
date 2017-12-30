@@ -52,11 +52,16 @@ class Contenidos extends \yii\db\ActiveRecord
     {
         return [
             [['contenido_titulo', 'usuario_id'], 'required'],
+
             [['contenido_titulo', 'contenido_resumen', 'contenido_detalles', 'contenido_http', 'contenido_imagen_1', 'contenido_imagen_2', 'contenido_imagen_3', 'contenido_tipo', 'contenido_marca', 'contenido_categorias', 'contenido_subcategorias', 'contenido_imagen_4', 'contenido_imagen_5', 'contenido_imagen_6', 'contenido_imagen_7', 'contenido_imagen_8', 'contenido_imagen_9', 'contenido_imagen_10'], 'string'],
+
             [['contenido_disponibilidad', 'usuario_id'], 'integer'],
             [['contenido_precio'], 'number'],
             [['contenido_fecha_creacion'], 'safe'],
             [['usuario_id'], 'exist', 'skipOnError' => true, 'targetClass' => Usuarios::className(), 'targetAttribute' => ['usuario_id' => 'usuario_id']],
+
+
+            
         ];
     }
 
@@ -66,29 +71,33 @@ class Contenidos extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'contenido_id' => 'Contenido ID',
-            'contenido_titulo' => 'Contenido Titulo',
-            'contenido_resumen' => 'Contenido Resumen',
-            'contenido_detalles' => 'Contenido Detalles',
-            'contenido_disponibilidad' => 'Contenido Disponibilidad',
-            'contenido_http' => 'Contenido Http',
-            'contenido_imagen_1' => 'Contenido Imagen 1',
-            'contenido_imagen_2' => 'Contenido Imagen 2',
-            'contenido_imagen_3' => 'Contenido Imagen 3',
-            'contenido_precio' => 'Contenido Precio',
-            'contenido_fecha_creacion' => 'Contenido Fecha Creacion',
-            'contenido_tipo' => 'Contenido Tipo',
-            'contenido_marca' => 'Contenido Marca',
-            'contenido_categorias' => 'Contenido Categorias',
-            'contenido_subcategorias' => 'Contenido Subcategorias',
-            'usuario_id' => 'Usuario ID',
-            'contenido_imagen_4' => 'Contenido Imagen 4',
-            'contenido_imagen_5' => 'Contenido Imagen 5',
-            'contenido_imagen_6' => 'Contenido Imagen 6',
-            'contenido_imagen_7' => 'Contenido Imagen 7',
-            'contenido_imagen_8' => 'Contenido Imagen 8',
-            'contenido_imagen_9' => 'Contenido Imagen 9',
-            'contenido_imagen_10' => 'Contenido Imagen 10',
+
+            'contenido_id' => Yii::t('app', 'ID Contenido'),
+            'contenido_titulo' => Yii::t('app', 'Título'),
+            'contenido_resumen' => Yii::t('app', 'Resumen'),
+            'contenido_detalles' => Yii::t('app', 'Detalles
+'),
+            'contenido_disponibilidad' => Yii::t('app', 'Disponibilidad
+'),
+            'contenido_http' => Yii::t('app', 'HTTP'),
+            'contenido_imagen_1' => Yii::t('app', 'Imagen Tamaño Pequeño'),
+            'contenido_imagen_2' => Yii::t('app', 'Imagen Tamaño Mediano'),
+            'contenido_imagen_3' => Yii::t('app', 'Imagen Tamaño Grande'),
+            'contenido_precio' => Yii::t('app', 'Precio'),
+            'contenido_fecha_creacion' => Yii::t('app', 'Fecha de Creación'),
+            'contenido_tipo' => Yii::t('app', 'Tipo Contenido'),
+            'contenido_marca' => Yii::t('app', 'Marca'),
+            'contenido_categorias' => Yii::t('app', 'Categoría'),
+            'contenido_subcategorias' => Yii::t('app', 'Sub Categoría'),
+            'usuario_id' => Yii::t('app', 'ID Usuario'),'contenido_imagen_4' => 'Contenido Imagen 4',
+            'contenido_imagen_5' => 'Imagen 5',
+            'contenido_imagen_6' => 'Imagen 6',
+            'contenido_imagen_7' => 'Imagen 7',
+            'contenido_imagen_8' => 'Imagen 8',
+            'contenido_imagen_9' => 'Imagen 9',
+            'contenido_imagen_10' => 'Imagen 10',
+
+
         ];
     }
 

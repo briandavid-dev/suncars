@@ -22,8 +22,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta name="description" content="">
 <meta name="author" content="">
-<link rel="shortcut icon" href="https://demo.themesuite.com/automotive/images/favicon.ico">
-<title>Automotive Car Dealership &amp; Business HTML Template</title>
+<link rel="shortcut icon" href="<?php print $theme->getUrl('resources/images/logos/logito.ico'); ?>">
+<title>SUNCARS</title>
 <!-- Bootstrap core CSS -->
 <link href="./themes/automovile/index_files/bootstrap.min.css" rel="stylesheet">
 
@@ -222,16 +222,24 @@ label {
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-                        <a class="navbar-brand" href="https://demo.themesuite.com/automotive/index.html"><img src ="themes/automovile/images/LOGO.png" alt="suncars"  height="5" width="5"  title="suncars"> </a> </div>
+                        <a class="navbar-brand" href="<?php print Url::base(true)."/productos"; ?>""><img src ="themes/automovile/images/LOGO.png" alt="suncars"  height="5" width="5"  title="suncars"> </a> </div>
                     
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav pull-right">
-                            <li class="active"><a href="<?php print Url::to(["site/index"]); ?>">Inicio</a></li>
-                            <li class="dropdown"><a href="nosotros" >Quiénes Somos</a>
+                            <li class="active"><a href="<?php print Url::base(true); ?>"">Inicio</a></li>
+                            <li class="dropdown"><a href="<?php print Url::base(true)."/nosotros"; ?>"" >Quiénes Somos</a>
                                
                             </li>
-                            <li class="dropdown"><a href="https://demo.themesuite.com/automotive/#" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
+
+                            <li class="dropdown">
+                                <a href="<?php print Url::base(true)."/productos"; ?>">Productos <b class="caret"></b></a>
+                            </li>
+
+                            <!--
+                            <li class="dropdown"><a href="<?php print Url::base(true)."/productos"; ?>" class="dropdown-toggle" data-toggle="dropdown">Productos <b class="caret"></b></a>
+                                
+                                
                                 <ul class="dropdown-menu">
                                     <li><a href="productos">Alarmas</a></li>
                                 <li><a href="productos">Tranca Palancas</a>
@@ -240,11 +248,14 @@ label {
                                     <li><a href="productos">Papel Ahumado</a></li>
 
                                     <li ><a href="productos">Auto Periquitos </a></li>
-                                </ul>                                
+                                </ul>   
+                                
+
                             </li>
-                             <li class="dropdown"><a href="servicios">Servicios</a></li>
+                            -->
+                             <li class="dropdown"><a href="<?php print Url::base(true)."/servicios"; ?>"">Servicios</a></li>
                            
-                             <li class="dropdown"><a href="contacto">Contacto</a></li>
+                             <li class="dropdown"><a href="<?php print Url::base(true)."/contacto"; ?>"">Contacto</a></li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse --> 
@@ -312,10 +323,12 @@ label {
                 <h4>Contáctenos</h4>
                 <div class="footer-contact">
                     <ul>
-                        <li><i class="fa fa-map-marker"></i> <strong>Dirección:</strong>  Santa Mónica, Av. Arturo Michelena, Quinta. Ami.</li>
+
+                        <li><i class="fa fa-map-marker"></i> <strong>Dirección:</strong>  Santa Mónica, Av. Arturo Michelena, Quinta. Ami. Caracas. Venezuela</li>
                         <li><i class="fa fa-phone"></i> <strong>Teléfono:</strong>(0212) 662 84 04</li>
                         <li><i class="fa fa-phone"></i><strong>Telefax:</strong> <span>(0212) 693 75 65</span></li>
                         <li><i class="fa fa-envelope-o"></i> <strong>Email:</strong><a href="contacto">suncarsinfo@gmail.com</a></li>
+                        
                     </ul>
 
                     <i class="fa fa-location-arrow back_icon"></i>
@@ -347,10 +360,11 @@ label {
 
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12"  >
                 <ul class="social margin-bottom-25 md-margin-bottom-25 sm-margin-bottom-20 xs-margin-bottom-20 xs-padding-top-10 clearfix">
+                    <!--
                     <li><a class="sc-1" href="https://demo.themesuite.com/automotive/#"></a></li>
                     <li><a class="sc-2" href="https://demo.themesuite.com/automotive/#"></a></li>
                    <li><a class="sc-3" href="https://demo.themesuite.com/automotive/#"></a></li>          
-                   
+                    -->
                 </ul>
             </div>
         </div>

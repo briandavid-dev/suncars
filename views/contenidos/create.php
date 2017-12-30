@@ -6,16 +6,16 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Contenidos */
 
-$this->title = 'Create Contenidos';
-$this->params['breadcrumbs'][] = ['label' => 'Contenidos', 'url' => ['index']];
+$this->title = Yii::t('app', 'Crear Publicación');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Publicaciones'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="contenidos-create">
+<div class="box box-primary">
+	<div class="box-body">
+	<div class="title-bmo-10"> <?= Html::encode($this->title) ?></div>
+	<hr class=" hr-bmo-12">
 
-    <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
+	<?= $this->render('_form', ['model' => $model,]) ?>
+	</div>
 </div>

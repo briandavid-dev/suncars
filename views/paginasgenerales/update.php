@@ -1,21 +1,24 @@
 <?php
 
 use yii\helpers\Html;
+use yii\grid\GridView;
+use yii\widgets\Pjax;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\PaginasGenerales */
 
-$this->title = 'Update Paginas Generales: ' . $model->pagina_general_id;
+$this->title = Yii::t('app', 'Actualización de la Página');
 $this->params['breadcrumbs'][] = ['label' => 'Paginas Generales', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->pagina_general_id, 'url' => ['view', 'id' => $model->pagina_general_id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="paginas-generales-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="box box-primary">
+	<div class="box-body">
+	<div class="title-bmo-10"> <?= Html::encode($this->title) ?></div>
+	<hr class=" hr-bmo-12">
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
 
+	<?= $this->render('_form', ['model' => $model,]) ?>
+	</div>
 </div>
+

@@ -18,8 +18,8 @@ class ContenidosSearch extends Contenidos
     public function rules()
     {
         return [
-            [['contenido_id', 'usuario_id'], 'integer'],
-            [['contenido_titulo', 'contenido_texto', 'contenido_http', 'contenido_imagen_1', 'contenido_imagen_2', 'contenido_imagen_3', 'contenido_fecha_creacion', 'contenido_tipo', 'contenido_marca', 'contenido_categoria', 'contenido_subcategoria', 'contenidoscol'], 'safe'],
+            [['contenido_id', 'contenido_disponibilidad', 'usuario_id'], 'integer'],
+            [['contenido_titulo', 'contenido_resumen', 'contenido_detalles', 'contenido_http', 'contenido_imagen_1', 'contenido_imagen_2', 'contenido_imagen_3', 'contenido_fecha_creacion', 'contenido_tipo', 'contenido_marca', 'contenido_categorias', 'contenido_subcategorias'], 'safe'],
             [['contenido_precio'], 'number'],
         ];
     }
@@ -61,22 +61,23 @@ class ContenidosSearch extends Contenidos
         // grid filtering conditions
         $query->andFilterWhere([
             'contenido_id' => $this->contenido_id,
+            'contenido_disponibilidad' => $this->contenido_disponibilidad,
             'contenido_precio' => $this->contenido_precio,
             'contenido_fecha_creacion' => $this->contenido_fecha_creacion,
             'usuario_id' => $this->usuario_id,
         ]);
 
         $query->andFilterWhere(['like', 'contenido_titulo', $this->contenido_titulo])
-            ->andFilterWhere(['like', 'contenido_texto', $this->contenido_texto])
+            ->andFilterWhere(['like', 'contenido_resumen', $this->contenido_resumen])
+            ->andFilterWhere(['like', 'contenido_detalles', $this->contenido_detalles])
             ->andFilterWhere(['like', 'contenido_http', $this->contenido_http])
             ->andFilterWhere(['like', 'contenido_imagen_1', $this->contenido_imagen_1])
             ->andFilterWhere(['like', 'contenido_imagen_2', $this->contenido_imagen_2])
             ->andFilterWhere(['like', 'contenido_imagen_3', $this->contenido_imagen_3])
             ->andFilterWhere(['like', 'contenido_tipo', $this->contenido_tipo])
             ->andFilterWhere(['like', 'contenido_marca', $this->contenido_marca])
-            ->andFilterWhere(['like', 'contenido_categoria', $this->contenido_categoria])
-            ->andFilterWhere(['like', 'contenido_subcategoria', $this->contenido_subcategoria])
-            ->andFilterWhere(['like', 'contenidoscol', $this->contenidoscol]);
+            ->andFilterWhere(['like', 'contenido_categorias', $this->contenido_categorias])
+            ->andFilterWhere(['like', 'contenido_subcategorias', $this->contenido_subcategorias]);
 
         return $dataProvider;
     }

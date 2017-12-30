@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Contenidos */
 
 $this->title = $model->contenido_id;
-$this->params['breadcrumbs'][] = ['label' => 'Contenidos', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Contenidos'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="contenidos-view">
@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->contenido_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->contenido_id], [
+        <?= Html::a(Yii::t('app', 'Update'), ['update', 'id' => $model->contenido_id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Delete'), ['delete', 'id' => $model->contenido_id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => Yii::t('app', 'Are you sure you want to delete this item?'),
                 'method' => 'post',
             ],
         ]) ?>
@@ -30,7 +30,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'contenido_id',
             'contenido_titulo:ntext',
-            'contenido_texto:ntext',
+            'contenido_resumen:ntext',
+            'contenido_detalles:ntext',
+            'contenido_disponibilidad',
             'contenido_http:ntext',
             'contenido_imagen_1:ntext',
             'contenido_imagen_2:ntext',
@@ -38,10 +40,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'contenido_precio',
             'contenido_fecha_creacion',
             'contenido_tipo:ntext',
-            'contenido_marca',
-            'contenido_categoria:ntext',
-            'contenido_subcategoria:ntext',
-            'contenidoscol',
+            'contenido_marca:ntext',
+            'contenido_categorias:ntext',
+            'contenido_subcategorias:ntext',
             'usuario_id',
         ],
     ]) ?>

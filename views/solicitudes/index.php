@@ -7,24 +7,35 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\SolicitudesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Solicitudes';
+$this->title = Yii::t('app', 'Solicitudes');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="solicitudes-index">
+<div class="box box-primary">
+    <div class="box-body">
+    <div class="title-bmo-10"> <?= Html::encode($this->title) ?></div>
 
-    <h1><?= Html::encode($this->title) ?></h1>
+
+    <hr class="hr-bmo-12 ">
+
+
+          <?php if (Yii::$app->session->hasFlash('success')): ?>
+              <div class="alert alert-success alert-dismissable">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+               <?= Yii::$app->session->getFlash('success') ?>
+              </div>
+          <?php endif; ?>
+
+    
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a('Create Solicitudes', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+   
 <?php Pjax::begin(); ?>    <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'solicitud_id',
+            
             'solicitud_nombre:ntext',
             'solicitud_email:ntext',
             'solicitud_mensaje:ntext',
@@ -34,4 +45,4 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-<?php Pjax::end(); ?></div>
+<?php Pjax::end(); ?></div></div>

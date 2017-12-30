@@ -41,10 +41,10 @@ class PaginasGenerales extends \yii\db\ActiveRecord
     {
         return [
             'pagina_general_id' => 'Pagina General ID',
-            'pagina_general_titulo' => 'Pagina General Titulo',
-            'pagina_general_http' => 'Pagina General Http',
-            'pagina_general_contenido_1' => 'Pagina General Contenido 1',
-            'pagina_general_contenido_2' => 'Pagina General Contenido 2',
+            'pagina_general_titulo' => 'Título',
+            'pagina_general_http' => 'Http',
+            'pagina_general_contenido_1' => 'Contenido 1',
+            'pagina_general_contenido_2' => 'Contenido 2',
         ];
     }
 

@@ -36,6 +36,8 @@ class Solicitudes extends \yii\db\ActiveRecord
             [['solicitud_nombre', 'solicitud_email', 'solicitud_mensaje', 'solicitud_telefono'], 'string'],
             [['contenido_id'], 'integer'],
             [['contenido_id'], 'exist', 'skipOnError' => true, 'targetClass' => Contenidos::className(), 'targetAttribute' => ['contenido_id' => 'contenido_id']],
+
+            [['solicitud_email'], 'email'],
         ];
     }
 
@@ -45,12 +47,12 @@ class Solicitudes extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'solicitud_id' => 'Solicitud ID',
-            'solicitud_nombre' => 'Solicitud Nombre',
-            'solicitud_email' => 'Solicitud Email',
-            'solicitud_mensaje' => 'Solicitud Mensaje',
-            'solicitud_telefono' => 'Solicitud Telefono',
-            'contenido_id' => 'Contenido ID',
+            'solicitud_id' => Yii::t('app', 'ID'),
+            'solicitud_nombre' => Yii::t('app', 'Nombre'),
+            'solicitud_email' => Yii::t('app', 'E-Mail'),
+            'solicitud_mensaje' => Yii::t('app', 'Mensaje'),
+            'solicitud_telefono' => Yii::t('app', 'Teléfono'),
+            'contenido_id' => Yii::t('app', 'Contenido Asociado'),
         ];
     }
 
