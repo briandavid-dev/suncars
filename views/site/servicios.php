@@ -42,7 +42,12 @@
 
                                 <!-- si el link parametro es igual al value http que se va a imprimir, cambia el boton -->
                                 <?php
-                                    $styleBtn = ($_REQUEST["cat"] == $valCat->categoria_http) ? "btn-primary" : "btn-default";
+                                    
+                                    $styleBtn = "btn-default";
+                                    if(isset($_REQUEST["cat"])){
+                                        $styleBtn = ($_REQUEST["cat"] == $valCat->categoria_http) ? "btn-primary" : "btn-default";
+                                    }
+
                                 ?>
 
                                 <button type="button" class="btn <?php print $styleBtn; ?>">
