@@ -20,7 +20,13 @@ use yii\widgets\ActiveForm;
                 <h2 style="color: #009FB6;
     text-align: center; padding-bottom: 30px;"><?php print $model->contenido_titulo; ?></h2>
                 
-            </div>          
+            </div>    
+            <?php if (Yii::$app->session->hasFlash('success')): ?>
+              <div class="alert alert-success alert-dismissable">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+               <?= Yii::$app->session->getFlash('success') ?>
+              </div>
+            <?php endif; ?>      
         </div>
     </div>
 </section>

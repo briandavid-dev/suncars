@@ -42,7 +42,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'solicitud_telefono:ntext',
             // 'contenido_id',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+              'template' => '{view} {delete}'
+            ],
         ],
     ]); ?>
 <?php Pjax::end(); ?></div></div>

@@ -5,6 +5,7 @@ $theme = $this->theme;
 	$email    = (isset($email)) ? $email : "";
 	$telefono = (isset($telefono)) ? $telefono : "";
 	$mensaje  = (isset($mensaje)) ? $mensaje : "";
+	$titulo  = (isset($titulo)) ? $titulo : "SOLICITUD DE CONTACTO";
 	
 ?>
 
@@ -17,14 +18,14 @@ $theme = $this->theme;
 		            <table align="center">
 		                <tr>
 		                    <td align="center" class="masthead">
-		                        <img src='https://tuagendamedica.com/themes/tuagendamedica/img/logo/logo.png' alt='TUAGENDAMEDICA' title='TUAGENDAMEDICA' height="80" />
+		                        <img src='https://bmosoluciones.com/logosuncars.png' alt='suncars' title='suncars' height="80" />
 		                    </td>
 		                </tr>
 		                <tr>
 		                    <td class="content">
 		                    
 								
-		                        <h4 style="text-align: center;">SOLICITUD DE CONTACTO</h4>
+		                        <h4 style="text-align: center;"><?php print $titulo; ?></h4>
 		                         
 		                        <div>&nbsp;</div>
                                 	<strong>Nombre:</strong>: <?php print $nombre; ?><br>
@@ -47,8 +48,7 @@ $theme = $this->theme;
 		            <table align="center" style="background: #313131 !important; color: #ffffff;">
 		                <tr>
 		                    <td class="content footer" align="center" style="background: #313131 !important;">
-		                    	<p>TUAGENDAMEDICA.COM</p>
-                            	<p><a href="https://tuagendamedica.com/">Visitenos en www.tuagendamedica.com</a></p>
+                            	<p><a href="https://suncars.com.ve/">Visitenos en www.suncars.com.ve</a></p>
 		                    </td>
 		                </tr>
 		            </table>

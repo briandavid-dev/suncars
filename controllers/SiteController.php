@@ -236,7 +236,7 @@ class SiteController extends Controller
                         "email" => $email,
                         "mensaje" => $mensaje,
                         "telefono" => $telefono,
-                        "titulo" => "SOLICITUD DE PRODUCTO O SERVICIO PARA SUNCARS",
+                        "titulo" => "SOLICITUD PARA ".strtoupper($modelContenido->contenido_tipo).": ".$modelContenido->contenido_titulo." de ".$nombre,
                         "para" => "suncarsinfo@gmail.com",
                     );
                     
@@ -254,8 +254,10 @@ class SiteController extends Controller
                         )
                     ) {
                         Yii::$app->session->setFlash('success', "Gracias. Recibiras una respuesta pronto");
+                        $modelSolicitudes = new Solicitudes();
+                        return $this->render('informacionservicio',array('model'=>$modelContenido,'modelSolicitudes'=>$modelSolicitudes));
                     } else {
-                    //Yii::$app->session->setFlash('success', "Gracias");
+                        Yii::$app->session->setFlash('success', "Gracias");
                     }
 
              
