@@ -225,7 +225,7 @@ use yii\widgets\ActiveForm;
 
                     <?= $form->field($modelSolicitudes, 'solicitud_nombre')->textInput(['rows' => 6]) ?>
 
-                    <?= $form->field($modelSolicitudes, 'solicitud_email')->textInput(['rows' => 6]) ?>
+                    <?= $form->field($modelSolicitudes, 'solicitud_email')->textInput(['rows' => 6])->input('email')  ?>
 
                     <?= $form->field($modelSolicitudes, 'solicitud_mensaje')->textarea(['rows' => 6]) ?>
 

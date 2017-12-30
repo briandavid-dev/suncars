@@ -55,11 +55,11 @@
 .form-row {
 	width: 240px;
 }
-
+/*
 input[type="text"], textarea, select, div.styled, input[type="file"] {
 	width: 108px;
 }
-
+*/
 .slide-text-wrap h2 {
 	font-size: 72px;
 }
@@ -1265,11 +1265,11 @@ table.right_table {
 header {
 	position: absolute;
 }
-
+/*
 input[type="text"], textarea, select, div.styled, input[type="file"] {
 	width: 47.7%;
 }
-
+*/
 #secondary-banner {
 	margin-top: -21px;
 	padding-top: 164px;
@@ -3460,11 +3460,11 @@ header {
 .form-row {
 	width: 100%;
 }
-
+/*
 input[type="text"], textarea, select, div.styled, input[type="file"] {
 	width: 45%;
 }
-
+*/
 #secondary-banner h2 {
 	font-size: 28px;
 	padding-top: 0;
