@@ -106,7 +106,7 @@ use yii\widgets\Breadcrumbs;
                                                 </tr>
                                                 <tr>
                                                     <td>Domingo:</td>
-                                                    <td>Closed</td>
+                                                    <td>Cerrado</td>
                                                 </tr>
                                             </tbody>
                                         </table>

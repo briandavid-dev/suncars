@@ -6,6 +6,7 @@
     use yii\widgets\Breadcrumbs;
 	use app\assets\AutomovileAsset;
     use yii\helpers\Url;
+    use app\controllers\SiteController;
 
 
 	AutomovileAsset::register($this);
@@ -14,16 +15,19 @@
 ?>
 <!DOCTYPE html>
 <!-- saved from url=(0039)https://demo.themesuite.com/automotive/ -->
-<html lang="en" class="js no-touch"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}
-</style><link type="text/css" rel="stylesheet" href="./themes/automovile/index_files/css"><style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}
-</style><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.gm-style-pbc{transition:opacity ease-in-out;background-color:rgba(0,0,0,0.45);text-align:center}.gm-style-pbt{font-size:22px;color:white;font-family:Roboto,Arial,sans-serif;position:relative;margin:0;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
-</style>
+<html lang="en" class="js no-touch"><!--<![endif]-->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<meta name="description" content="">
-<meta name="author" content="">
 <link rel="shortcut icon" href="<?php print $theme->getUrl('resources/images/logos/logito.ico'); ?>">
-<title>SUNCARS</title>
+
+<?php 
+            $site = new SiteController(null, null);
+            $site->display_seo();
+        ?>
+
 <!-- Bootstrap core CSS -->
 <link href="./themes/automovile/index_files/bootstrap.min.css" rel="stylesheet">
 
@@ -227,12 +231,13 @@ label {
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav pull-right">
-                            <li class="active"><a href="<?php print Url::base(true); ?>"">Inicio</a></li>
-                            <li class="dropdown"><a href="<?php print Url::base(true)."/nosotros"; ?>"" >Quiénes Somos</a>
-                               
+                            <li class=" <?php print (Yii::$app->session['menu'] == "inicio") ? "active" : "" ; ?> ">
+                                <a href="<?php print Url::base(true); ?>"">Inicio</a></li>
+                            <li class="dropdown <?php print (Yii::$app->session['menu'] == "nosotros") ? "active" : "" ; ?> ">
+                                <a href="<?php print Url::base(true)."/nosotros"; ?>"" >Quiénes Somos</a>
                             </li>
 
-                            <li class="dropdown">
+                            <li class="dropdown <?php print (Yii::$app->session['menu'] == "productos") ? "active" : "" ; ?> ">
                                 <a href="<?php print Url::base(true)."/productos"; ?>">Productos <b class="caret"></b></a>
                             </li>
 
@@ -253,9 +258,13 @@ label {
 
                             </li>
                             -->
-                             <li class="dropdown"><a href="<?php print Url::base(true)."/servicios"; ?>"">Servicios</a></li>
+                             <li class="dropdown <?php print (Yii::$app->session['menu'] == "servicios") ? "active" : "" ; ?> ">
+                                <a href="<?php print Url::base(true)."/servicios"; ?>"">Servicios</a>
+                            </li>
                            
-                             <li class="dropdown"><a href="<?php print Url::base(true)."/contacto"; ?>"">Contacto</a></li>
+                             <li class="dropdown <?php print (Yii::$app->session['menu'] == "contacto") ? "active" : "" ; ?> ">
+                                <a href="<?php print Url::base(true)."/contacto"; ?>"">Contacto</a>
+                            </li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse --> 

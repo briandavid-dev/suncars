@@ -27,9 +27,9 @@ return [
 /*
  return [
  'class' => 'yii\db\Connection',
- 'dsn' => 'mysql:host=localhost;dbname=tuagenda_db',
- 'username' => 'tuagenda_user',
- 'password' => 'TuAge11-41',
+ 'dsn' => 'mysql:host=localhost;dbname=suncarsc_suncars',
+ 'username' => 'suncarsc_suncars',
+ 'password' => 'lFz9Tmpp8c',
  'charset' => 'utf8',
  ];
 */
