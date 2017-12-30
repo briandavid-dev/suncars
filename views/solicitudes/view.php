@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Solicitudes */
 
-$this->title = "Solicitud de información vía web'";
+$this->title = "Solicitud de información vía web";
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Solicitudes'), 'url' => ['index']];
 
 $this->params['breadcrumbs'][] = $this->title;
