@@ -215,7 +215,7 @@ use yii\widgets\ActiveForm;
             <div>&nbsp;</div>
             <div class="row">
                 <div class="col-md-12">
-                    <h3>Preguntanos sobre este <?php print $model->contenido_tipo; ?></h3>
+                    <h3>Pregúntanos sobre este <?php print $model->contenido_tipo; ?></h3>
                 </div>
 
                 <div class="col-md-12">
