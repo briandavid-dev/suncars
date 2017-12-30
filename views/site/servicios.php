@@ -2,6 +2,7 @@
 
     use yii\helpers\Url;
 
+    use app\models\Categorias;
     ?>
 
 <section ><!--for other images just change the class name of this section block like, class="dynamic-image-2" and add css for the changed class-->
@@ -17,13 +18,46 @@
             </div>          
         </div>
     </div>
+
+    
+
 </section>
 
 <div class="message-shadow"></div>
 <div class="clearfix"></div>
 
             <div class="col-md-12">
-                <br><br>
+                <br>
+
+            </div>
+            <div class="container text-center">
+                <div class="row">
+
+                    <?php
+                        $modelCategorias = Categorias::find()->limit(6)->all();
+
+                        foreach ($modelCategorias as $keyCat => $valCat) {
+                    ?>
+                            <a href="<?php print Url::base(true)."/productos-servicios?cat=".$valCat->categoria_http."&cod=".$valCat->categoria_codigo."&title=Productos y Servicios"; ?>">
+
+                                <!-- si el link parametro es igual al value http que se va a imprimir, cambia el boton -->
+                                <?php
+                                    $styleBtn = ($_REQUEST["cat"] == $valCat->categoria_http) ? "btn-primary" : "btn-default";
+                                ?>
+
+                                <button type="button" class="btn <?php print $styleBtn; ?>">
+                                    <?php print $valCat->categoria_nombre; ?>
+                                </button>    
+                            </a>
+                            
+                    <?php
+                        }
+                    ?>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <br>
+
             </div>
 <section class="content">
         <div class="shortcodes-content container">
@@ -35,8 +69,7 @@
                     foreach ($model as $key => $value) {
                 ?>
                     <div class="col-md-4">
-                        <div style="border:1px solid #CCCCCC; 
-padding:5px; width: 300px; word-wrap: break-word; ">
+                        <div style="border:1px solid #CCCCCC; padding:5px; width: 300px; word-wrap: break-word; ">
                             
                             <div class="text-center" border="1"  >
                                 <a href="<?php print Url::base(true)."/".$value->contenido_http; ?>">
@@ -54,8 +87,7 @@ padding:5px; width: 300px; word-wrap: break-word; ">
                                     ?>
 
 
-                                    <img src="<?php print $imagen; ?>" alt="<?php print $value->contenido_titulo; ?>" title="<?php print $value->contenido_titulo; ?>" class="img-responsive_ m-b-15" style=" max-height: 204px; max-width: 100%;border:1px solid #CCCCCC; 
-    padding:5px; ">
+                                    <img src="<?php print $imagen; ?>" alt="<?php print $value->contenido_titulo; ?>" title="<?php print $value->contenido_titulo; ?>" class="img-responsive_ m-b-15" style=" max-height: 204px; max-width: 100%;border:1px solid #CCCCCC; padding:5px; ">
                                 </a>
                             </div>
                             <div class="text-justify" style="min-height: 130px; position: relative;">                       

@@ -188,7 +188,9 @@ use yii\helpers\Url;
 
                 </div>
                 
-                <div class="recent-vehicles-wrap margin-top-30 sm-padding-left-none padding-bottom-40">
+                
+        
+       <div class="recent-vehicles-wrap margin-top-30 sm-padding-left-none padding-bottom-40">
                     <div class="row">
                         <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12 recent-vehicles padding-left-none">
                             <h5 class="margin-top-none">PRODUCTOS</h5>
@@ -298,7 +300,11 @@ use yii\helpers\Url;
                         </div>
                     </div>
                 </div>
-                
+
+
+
+
+
   
                
 <!--message-wrap ends-->
@@ -307,14 +313,56 @@ use yii\helpers\Url;
         <div class="inner-page homepage margin-bottom-none">
             <section class="car-block-wrap padding-bottom-40">
                 <div class="container">
+
+
+
+
+
+
                     <div class="row">
 
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 margin-bottom-none">
                             <div class="small-block clearfix">
-                                <h4 class="margin-bottom-25 margin-top-none">Servicios que Ofrecemos</h4>
+                                <h4 class="margin-bottom-25 margin-top-none">Servicios </h4>
                            </div>
 
                         </div>
+
+                        <?php
+                            foreach ($model as $key => $value) {
+                        ?>
+
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 ">
+                                <div class="flip margin-bottom-30">
+                                    <div class="card">
+                                        <?php
+                                        $theme = $this->theme;
+                                        
+                                        $imagen = "";
+                                        if(!empty($value->contenido_imagen_1)){
+                                            $imagen = $theme->getUrl('resources/images/contenidos/').$value->contenido_imagen_1;  
+                                        }
+                                        
+
+
+                                        ?>
+                                        <div class="face front"><img class="img-responsive" src="<?php print $imagen; ?>" alt="<?php print $value->contenido_titulo; ?>" title="<?php print $value->contenido_titulo; ?>"></div>
+                                        <div class="face back">
+                                            <div class='hover_title'>
+                                                <?php print ($value->contenido_disponibilidad) ? '<span class="label label-info">DIPONIBLE</span>' : '<span class="label label-default">NO DIPONIBLE</span>' ; ?>
+                                            </div>
+                                            <a href="#"><i class="fa fa-link button_icon"></i></a> <a href="./themes/automovile/index_files/car1-lrg.jpg" class="fancybox"><i class="fa fa-arrows-alt button_icon"></i></a> </div>
+                                    </div>
+                                </div>
+                                <h4><a href="<?php print Url::base(true)."/".$value->contenido_http; ?>"><?php print $value->contenido_titulo; ?></a></h4>
+                                <p class="margin-bottom-none"><?php print $value->contenido_resumen; ?></p>
+                            </div>
+
+
+
+                        <?php } ?>
+
+                        <!--
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 margin-bottom-none">
                             <div class="flip margin-bottom-30">
                                 <div class="card">
@@ -360,6 +408,7 @@ use yii\helpers\Url;
                                 ponderum vituperatoribus, quo adhuc abhorreant 
                                 omittantur ad. No his fierent perpetua consequat, et nis.</p>
                         </div>
+                        -->
                     </div>
                 </div>
             </section>

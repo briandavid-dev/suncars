@@ -25,6 +25,68 @@ use app\models\Solicitudes;
 class SiteController extends Controller
 {
 
+    /* SEO Vars */
+      public $metaTitle = 'SUNCARS. Fabricamos Bovedas. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado.';
+      public $metaKeywords = 'SUNCARS. Fabricamos Bovedas a la medida. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado.';
+      public $metaDescription = 'SUNCARS. Fabricamos Bovedas a la medida. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado';
+      public $metaImage = 'http://suncars.com.ve/logo.png';
+      public $metaAutor = 'SUNCARS. Desarrollado por bmosoluciones.com';
+      public $metaUrl = 'http://suncars.com.ve/';
+      public $metaSite = '@suncars';
+      public $metaCreator = '@suncars';
+      
+      // Displays SEO-related Variables
+  public function display_seo() {
+    
+        if(!empty(Yii::$app->session['metaTitle'])) $this->metaTitle = Yii::$app->session['metaTitle']." ".Yii::$app->params['dominioNombreMayusculaSinWWW'];
+        if(!empty(Yii::$app->session['metaKeywords'])) $this->metaKeywords = Yii::$app->session['metaKeywords']." ".Yii::$app->params['dominioNombreMayusculaSinWWW'];
+        if(!empty(Yii::$app->session['metaDescription'])) $this->metaDescription = Yii::$app->session['metaDescription']." ".Yii::$app->params['dominioNombreMayusculaSinWWW'];
+        if(!empty(Yii::$app->session['metaImage'])) $this->metaImage = Yii::$app->session['metaImage'];
+        if(!empty(Yii::$app->session['metaAutor'])) $this->metaAutor = Yii::$app->session['metaAutor'];
+        if(!empty(Yii::$app->session['metaUrl'])) $this->metaUrl = Yii::$app->session['metaUrl'];
+        if(!empty(Yii::$app->session['metaSite'])) $this->metaSite = Yii::$app->session['metaSite'];
+        if(!empty(Yii::$app->session['metaCreator'])) $this->metaCreator = Yii::$app->session['metaCreator'];
+        
+        print "
+    <!-- METAS GENERALES -->
+        <title>$this->metaTitle</title>
+        <meta name='description' content='$this->metaDescription'>
+            
+    <meta name='author'     content='$this->metaAutor'/>
+      <meta name='keywords'     content='$this->metaKeywords'>
+      <meta name='Description'  content='$this->metaDescription'>
+        <meta name='author'     content='$this->metaAutor'>
+      
+        <!-- METAS FACEBOOK -->
+        <meta property='og:url'         content='$this->metaUrl' />
+    <meta property='og:title'       content='$this->metaTitle' />
+    <meta property='og:description' content='$this->metaDescription' />
+    <meta property='og:image'       content='$this->metaImage' />
+
+        <!-- METAS TWITTER -->
+        <meta name='twitter:card'       content='summary_large_image'>
+        <meta name='twitter:site'       content='$this->metaSite'>
+        <meta name='twitter:creator'    content='$this->metaCreator'>
+        <meta name='twitter:title'      content='$this->metaTitle'>
+        <meta name='twitter:description'  content='$this->metaDescription'>
+        ";
+      
+
+
+
+
+
+        /*
+        print "
+    <script type='text/javascript'>var switchTo5x=true;</script>
+    <script type='text/javascript' src='http://w.sharethis.com/button/buttons.js'></script>
+    <script type='text/javascript'>stLight.options({publisher: '4e7d3e07-6c1b-478c-b8c2-1121a80402c7', doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+    ";
+    */
+        
+      
+  }
+
 
     public function behaviors()
     {
@@ -73,18 +135,21 @@ class SiteController extends Controller
      public function actionIndex()
      {
 
-
+      Yii::$app->session['menu'] = 'inicio';
          
-    	Yii::$app->session['metaTitle'] = 'suncars';
-  		Yii::$app->session['metaKeywords'] = 'suncars';
-     	Yii::$app->session['metaDescription'] = 'suncars';
+    	
      			
   		$this->layout ="automovile"; 
 
-           
+
+        $modelProductos = Contenidos::find()->where(["contenido_tipo"=>"servicio"])->limit(3)->all();
+        $modelServicios = Contenidos::find()->where(["contenido_tipo"=>"producto"])->limit(10)->all();
+                                
+                                 
                      
-       Yii::$app->session->setFlash('success', "Su solicitud fue enviada exitosamente! Nos estaremos comunicando con usted lo mas pronto posible !");
-         return $this->render('index');     
+       /*Yii::$app->session->setFlash('success', "Su solicitud fue enviada exitosamente! Nos estaremos comunicando con usted lo mas pronto posible !");*/
+
+         return $this->render('index',array('model'=>$modelProductos,'model'=>$modelServicios));     
         
      }
 
@@ -145,6 +210,11 @@ class SiteController extends Controller
 
         $modelContenido = Contenidos::find()->where(['contenido_http' => $http])->one();  
         if(!empty($modelContenido)){
+
+
+            Yii::$app->session['metaTitle'] = $modelContenido->contenido_tipo.", ".$modelContenido->contenido_titulo." ".$modelContenido->contenido_resumen." ".$modelContenido->contenido_marca;
+            Yii::$app->session['metaKeywords'] = $modelContenido->contenido_tipo.", ".$modelContenido->contenido_titulo." ".$modelContenido->contenido_resumen." ".$modelContenido->contenido_marca;
+            Yii::$app->session['metaDescription'] = $modelContenido->contenido_tipo.", ".$modelContenido->contenido_titulo." ".$modelContenido->contenido_resumen." ".$modelContenido->contenido_marca;
             
 
             $modelSolicitudes = new Solicitudes();
@@ -210,17 +280,28 @@ class SiteController extends Controller
                                 case 'home':
 
                                 
-                                return $this->render('index');
+                                  return $this->render('index');
                                 
                                 break;
 
                                 case 'nosotros':
+
+                                    Yii::$app->session['metaTitle'] = 'NOSOTROS - SUNCARS. Fabricamos Bovedas. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado.';
+                                    Yii::$app->session['metaKeywords'] = 'NOSOTROS - SUNCARS. Fabricamos Bovedas a la medida. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado.';
+                                    Yii::$app->session['metaDescription'] = 'NOSOTROS - SUNCARS. Fabricamos Bovedas a la medida. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado.';
                                 
+                                  Yii::$app->session['menu'] = 'nosotros';
                                   return $this->render('nosotros');
                                 
                                 break;
 
                                 case 'servicios':
+
+                                    Yii::$app->session['metaTitle'] = 'SERVICIOS - SUNCARS. Fabricamos Bovedas. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado.';
+                                    Yii::$app->session['metaKeywords'] = 'SERVICIOS - SUNCARS. Fabricamos Bovedas a la medida. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado.';
+                                    Yii::$app->session['metaDescription'] = 'SERVICIOS - SUNCARS. Fabricamos Bovedas a la medida. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado.';
+
+                                    Yii::$app->session['menu'] = 'servicios';
                                 
                                     $modelServicios = Contenidos::find()
                                     ->where(['contenido_tipo' => 'servicio'])
@@ -232,6 +313,12 @@ class SiteController extends Controller
 
                                 case 'productos':
 
+                                    Yii::$app->session['metaTitle'] = 'PRODUCTOS - SUNCARS. Fabricamos Bovedas. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado.';
+                                    Yii::$app->session['metaKeywords'] = 'PRODUCTOS - SUNCARS. Fabricamos Bovedas a la medida. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado.';
+                                    Yii::$app->session['metaDescription'] = 'PRODUCTOS - SUNCARS. Fabricamos Bovedas a la medida. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado.';
+
+                                    Yii::$app->session['menu'] = 'productos';
+
                                     $modelProductos = Contenidos::find()
                                     ->where(['contenido_tipo' => 'producto'])
                                     ->all();
@@ -240,6 +327,21 @@ class SiteController extends Controller
                                 
                                 break;
 
+                                case 'productos-servicios':
+                                
+                                    Yii::$app->session['menu'] = 'inicio';
+
+                                    $codigo = $_REQUEST["cod"];
+                                    $titulo = $_REQUEST["title"];
+
+                                    $modelContenidos = Contenidos::find()
+                                    ->where("contenido_categorias LIKE '%$codigo%' ")
+                                    //->orderBy(['post_date' => SORT_DESC])
+                                    ->limit(50)->all();
+
+                                    return $this->render('servicios',array('tipo'=>$titulo, 'model'=>$modelContenidos));
+                                
+                                break;
 
                                 case 'informacionservicio':
                                 
@@ -251,7 +353,14 @@ class SiteController extends Controller
 
                                 case 'contacto':
 
-                                return $this->render('contacto',array());
+                                    Yii::$app->session['metaTitle'] = 'CONTACTO - SUNCARS. Fabricamos Bovedas. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado.';
+                                    Yii::$app->session['metaKeywords'] = 'CONTACTO - SUNCARS. Fabricamos Bovedas a la medida. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado.';
+                                    Yii::$app->session['metaDescription'] = 'CONTACTO - SUNCARS. Fabricamos Bovedas a la medida. Tranca Palancas. Auto Periquitos. Alarmas. Papel Ahumado.';
+
+                                    Yii::$app->session['menu'] = 'contacto';
+
+
+                                  return $this->render('contacto',array());
                                 
                                 break;
 
