@@ -197,22 +197,54 @@ use yii\helpers\Url;
                             <p>Ofrecemos los mejores productos para su vehículos.</p>
                             <div class="arrow3 clearfix margin-top-15 xs-margin-bottom-25" id="slideControls3"><span class="prev-btn"></span><span class="next-btn"></span></div>
                         </div>
+
                         <div class="col-md-10 col-sm-8 padding-right-none xs-padding-left-none">
                             <div class="carasouel-slider3">
+
+                            <?php
+                            foreach ($modelProductos as $keyPro => $valPro) {
+                           ?>
+                            
                                 <div class="slide">
-                                    <div class="angled_badge blue">
-                                        <span>405 HP</span>
+
+                                     <?php
+                                    if ($valPro->contenido_disponibilidad==1){
+                                    $clase="blue";
+                                } else {
+
+                                $clase="red";
+                                  }
+                                  
+                                  ?>
+
+                                    <div class="angled_badge <?php print $clase; ?>">
+
+                                        <span><?php print ($valPro->contenido_disponibilidad) ? 'DIPONIBLE' : 'NO DIPONIBLE' ; ?></span>
                                     </div>
                                     <div class="car-block">
-                                        <div class="img-flex"> <a href="informacionservicio"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="./themes/automovile/images/c-car1.jpg" alt="" class="img-responsive"> </div>
+
+                                        <?php
+                                        $theme = $this->theme;
+                                        
+                                        $imagen = "";
+                                        if(!empty($valPro->contenido_imagen_1)){
+                                            $imagen = $theme->getUrl('resources/images/contenidos/').$valPro->contenido_imagen_1;  
+                                        }
+                                        
+
+
+                                        ?>
+
+                                        <div class="img-flex"> <a href="<?php print Url::base(true)."/".$valPro->contenido_http; ?>"><span class="align-center"><i class="fa fa-3x fa-plus-square-o"></i></span></a> <img src="<?php print $imagen; ?>" alt="<?php print $valPro->contenido_titulo; ?>" title="<?php print $valPro->contenido_titulo; ?>" class="img-responsive"> </div>
                                         <div class="car-block-bottom">
-                                            <h6><strong>2012 Porsche Cayenne GTS</strong></h6>
-                                            <h6>1 Owner, 26,273 miles</h6>
-                                            <h5>$ 102,995</h5>
+                                            <h6><strong><?php print $valPro->contenido_titulo; ?></strong></h6>
+                                            <h6><?php print $valPro->contenido_resumen; ?></h6>
+                                            
                                         </div>
                                     </div>
                                 </div>
-                                <div class="slide">
+                                <?php } ?>
+                               <!-- <div class="slide">
                                     <div class="angled_badge red">
                                         <span>Just Arrived</span>
                                     </div>
@@ -295,9 +327,16 @@ use yii\helpers\Url;
                                             <h5>$ 39,995</h5>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
+
+                            <div>&nbsp;</div>
+                            
+
+
                         </div>
+
+
                     </div>
                 </div>
 
