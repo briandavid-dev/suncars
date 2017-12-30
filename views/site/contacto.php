@@ -20,7 +20,13 @@ use yii\widgets\Breadcrumbs;
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <h2 style="color: #009FB6;
     text-align: center; padding-bottom: 30px;">Contáctanos</h2>
-            </div>          
+            </div>  
+            <?php if (Yii::$app->session->hasFlash('success')): ?>
+              <div class="alert alert-success alert-dismissable">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+               <?= Yii::$app->session->getFlash('success') ?>
+              </div>
+            <?php endif; ?>       
         </div>
     </div>
 </section>
