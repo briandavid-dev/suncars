@@ -96,6 +96,36 @@ class ContenidosController extends Controller
                 $path1 = $themeBasePath.'/resources/images/contenidos/'.$fileName1;
             }
 
+             $uploadedFile2=UploadedFile::getInstance($model,'contenido_imagen_2');
+            
+            if(!empty($uploadedFile2)) {
+                $fileName2 = "$rnd.jpg";  // random number + file name
+                $model->contenido_imagen_2 = $fileName2;
+                $path2 = $themeBasePath.'/resources/images/contenidos/'.$fileName2;
+            }
+
+            if(!empty($uploadedFile3)) {
+                $fileName3 = "$rnd.jpg";  // random number + file name
+                $model->contenido_imagen_3 = $fileName3;
+                $path3 = $themeBasePath.'/resources/images/contenidos/'.$fileName3;
+            }
+
+            $uploadedFile4=UploadedFile::getInstance($model,'contenido_imagen_4');
+            
+            if(!empty($uploadedFile4)) {
+                $fileName4 = "$rnd.jpg";  // random number + file name
+                $model->contenido_imagen_4 = $fileName4;
+                $path4 = $themeBasePath.'/resources/images/contenidos/'.$fileName4;
+            }
+
+
+             $uploadedFile5=UploadedFile::getInstance($model,'contenido_imagen_5');
+            
+            if(!empty($uploadedFile5)) {
+                $fileName5 = "$rnd.jpg";  // random number + file name
+                $model->contenido_imagen_5 = $fileName5;
+                $path5 = $themeBasePath.'/resources/images/contenidos/'.$fileName5;
+            }
 
             if(!empty($model->contenido_categorias)){
 
@@ -124,6 +154,22 @@ class ContenidosController extends Controller
 
                 if(!empty($uploadedFile1)){
                     $uploadedFile1->saveAs($path1);
+                }
+
+                if(!empty($uploadedFile2)){
+                    $uploadedFile2->saveAs($path2);
+                }
+
+                if(!empty($uploadedFile3)){
+                    $uploadedFile3->saveAs($path3);
+                }
+
+                if(!empty($uploadedFile4)){
+                    $uploadedFile4->saveAs($path4);
+                }
+
+                if(!empty($uploadedFile5)){
+                    $uploadedFile5->saveAs($path5);
                 }
                            
                 Yii::$app->session->setFlash('success', "<span class='fa fa-check'></span> Exito");
@@ -157,6 +203,11 @@ class ContenidosController extends Controller
     {
         $model = $this->findModel($id);
         $imagen1 = $model->contenido_imagen_1;
+        $imagen2 = $model->contenido_imagen_2;
+        $imagen3 = $model->contenido_imagen_3;
+        $imagen4 = $model->contenido_imagen_4;
+        $imagen5 = $model->contenido_imagen_5;
+
         $themeBasePath = Yii::getAlias('@app/themes/automovile');
 
 
@@ -186,6 +237,48 @@ class ContenidosController extends Controller
                 $path1 = $themeBasePath.'/resources/images/contenidos/'.$fileName1;
             } else {
                 $model->contenido_imagen_1 = $imagen1;
+            }
+
+            $uploadedFile2=UploadedFile::getInstance($model,'contenido_imagen_2');
+            
+            if(!empty($uploadedFile2)) {
+                $fileName2 = "$rnd.jpg";  // random number + file name
+                $model->contenido_imagen_2 = $fileName2;
+                $path2 = $themeBasePath.'/resources/images/contenidos/'.$fileName2;
+            }   else {
+                $model->contenido_imagen_2 = $imagen2;
+            }
+
+            $uploadedFile3=UploadedFile::getInstance($model,'contenido_imagen_3');
+
+            if(!empty($uploadedFile3)) {
+                $fileName3 = "$rnd.jpg";  // random number + file name
+                $model->contenido_imagen_3 = $fileName3;
+                $path3 = $themeBasePath.'/resources/images/contenidos/'.$fileName3;
+            }   else {
+                $model->contenido_imagen_3 = $imagen3;
+            }
+
+
+            $uploadedFile4=UploadedFile::getInstance($model,'contenido_imagen_4');
+            
+            if(!empty($uploadedFile4)) {
+                $fileName4 = "$rnd.jpg";  // random number + file name
+                $model->contenido_imagen_4 = $fileName4;
+                $path4 = $themeBasePath.'/resources/images/contenidos/'.$fileName4;
+            }   else {
+                $model->contenido_imagen_4 = $imagen4;
+            }
+
+
+             $uploadedFile5=UploadedFile::getInstance($model,'contenido_imagen_5');
+            
+            if(!empty($uploadedFile5)) {
+                $fileName5 = "$rnd.jpg";  // random number + file name
+                $model->contenido_imagen_5 = $fileName5;
+                $path5 = $themeBasePath.'/resources/images/contenidos/'.$fileName5;
+            }   else {
+                $model->contenido_imagen_5 = $imagen5;
             }
 
 
@@ -221,7 +314,23 @@ class ContenidosController extends Controller
                 if(!empty($uploadedFile1)){
                     $uploadedFile1->saveAs($path1);
                 }
-                           
+                 
+                 if(!empty($uploadedFile2)){
+                    $uploadedFile2->saveAs($path2);
+                }
+
+                if(!empty($uploadedFile3)){
+                    $uploadedFile3->saveAs($path3);
+                }
+
+                if(!empty($uploadedFile4)){
+                    $uploadedFile4->saveAs($path4);
+                }
+
+                if(!empty($uploadedFile5)){
+                    $uploadedFile5->saveAs($path5);
+                }
+
                 Yii::$app->session->setFlash('success', "<span class='fa fa-check'></span> Exito");
 
                 return $this->redirect(['update', 'id' => $model->contenido_id]);

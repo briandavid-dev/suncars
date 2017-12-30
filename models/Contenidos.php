@@ -23,6 +23,13 @@ use Yii;
  * @property string $contenido_categorias
  * @property string $contenido_subcategorias
  * @property integer $usuario_id
+ * @property string $contenido_imagen_4
+ * @property string $contenido_imagen_5
+ * @property string $contenido_imagen_6
+ * @property string $contenido_imagen_7
+ * @property string $contenido_imagen_8
+ * @property string $contenido_imagen_9
+ * @property string $contenido_imagen_10
  *
  * @property Comentarios[] $comentarios
  * @property Usuarios $usuario
@@ -45,7 +52,9 @@ class Contenidos extends \yii\db\ActiveRecord
     {
         return [
             [['contenido_titulo', 'usuario_id'], 'required'],
-            [['contenido_titulo', 'contenido_resumen', 'contenido_detalles', 'contenido_http', 'contenido_imagen_1', 'contenido_imagen_2', 'contenido_imagen_3', 'contenido_tipo', 'contenido_marca', 'contenido_categorias', 'contenido_subcategorias'], 'string'],
+
+            [['contenido_titulo', 'contenido_resumen', 'contenido_detalles', 'contenido_http', 'contenido_imagen_1', 'contenido_imagen_2', 'contenido_imagen_3', 'contenido_tipo', 'contenido_marca', 'contenido_categorias', 'contenido_subcategorias', 'contenido_imagen_4', 'contenido_imagen_5', 'contenido_imagen_6', 'contenido_imagen_7', 'contenido_imagen_8', 'contenido_imagen_9', 'contenido_imagen_10'], 'string'],
+
             [['contenido_disponibilidad', 'usuario_id'], 'integer'],
             [['contenido_precio'], 'number'],
             [['contenido_fecha_creacion'], 'safe'],
@@ -62,6 +71,7 @@ class Contenidos extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+
             'contenido_id' => Yii::t('app', 'ID Contenido'),
             'contenido_titulo' => Yii::t('app', 'Título'),
             'contenido_resumen' => Yii::t('app', 'Resumen'),
@@ -70,9 +80,9 @@ class Contenidos extends \yii\db\ActiveRecord
             'contenido_disponibilidad' => Yii::t('app', 'Disponibilidad
 '),
             'contenido_http' => Yii::t('app', 'HTTP'),
-            'contenido_imagen_1' => Yii::t('app', 'Imagen Tamaño Pequeño'),
-            'contenido_imagen_2' => Yii::t('app', 'Imagen Tamaño Mediano'),
-            'contenido_imagen_3' => Yii::t('app', 'Imagen Tamaño Grande'),
+            'contenido_imagen_1' => Yii::t('app', 'Imagen Tamaño Grande'),
+            'contenido_imagen_2' => Yii::t('app', 'Imagen 2 Tamaño Grande'),
+            'contenido_imagen_3' => Yii::t('app', 'Imagen 3 Tamaño Grande'),
             'contenido_precio' => Yii::t('app', 'Precio'),
             'contenido_fecha_creacion' => Yii::t('app', 'Fecha de Creación'),
             'contenido_tipo' => Yii::t('app', 'Tipo Contenido'),
@@ -80,6 +90,15 @@ class Contenidos extends \yii\db\ActiveRecord
             'contenido_categorias' => Yii::t('app', 'Categoría'),
             'contenido_subcategorias' => Yii::t('app', 'Sub Categoría'),
             'usuario_id' => Yii::t('app', 'ID Usuario'),
+            'contenido_imagen_4' => 'Imagen 4 Tamaño Grande',
+            'contenido_imagen_5' => 'Imagen 5 Tamaño Grande',
+            'contenido_imagen_6' => 'Imagen Tamaño Pequeño',
+            'contenido_imagen_7' => 'Imagen 2 Tamaño Pequeño',
+            'contenido_imagen_8' => 'Imagen 3 Tamaño Pequeño',
+            'contenido_imagen_9' => 'Imagen 4 Tamaño Pequeño',
+            'contenido_imagen_10' => 'Imagen 5 Tamaño Pequeño',
+
+
         ];
     }
 

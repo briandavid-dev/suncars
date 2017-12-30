@@ -38,7 +38,7 @@
                         <div style="border:1px solid #CCCCCC; 
 padding:5px; width: 300px; word-wrap: break-word; ">
                             
-                            <div class="text-center" border="1">
+                            <div class="text-center" border="1"  >
                                 <a href="<?php print Url::base(true)."/".$value->contenido_http; ?>">
                                     <?php print $value->contenido_titulo; ?>
                                     <?php
@@ -69,6 +69,8 @@ padding:5px; width: 300px; word-wrap: break-word; ">
                             </p>
                             </div>
                         </div>
+
+                        <di> &nbsp;</di>
                    </div>
                 <?php
                     }

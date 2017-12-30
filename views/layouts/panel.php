@@ -235,7 +235,7 @@ DashboardAsset::register($this);
                           
                         </ul>
                     </li>
-                    <li>   
+                    <li class=" treeview active">   
                     	<a href="#">
 	                        <i class="fa fa-rss"></i> <span>Publicaciones</span>
 	                        <span class="pull-right-container">
