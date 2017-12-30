@@ -93,15 +93,6 @@
                                     <li data-thumb="themes/automovile/images/boxster8_slide.jpg"> <img src="themes/automovile/images/boxster8_slide.jpg" alt="" data-full-image="themes/automovile/images/boxster8.jpg" /> </li>
                                     <li data-thumb="themes/automovile/images/boxster10_slide.jpg"><img src="themes/automovile/images/boxster10_slide.jpg" alt="" data-full-image="themes/automovile/images/boxster10.jpg" /> </li>
 
-
-                                    <!-- full -->
-
-                                    <li data-thumb="themes/automovile/images/boxster6_slide.jpg"> <img src="themes/automovile/images/boxster6_slide.jpg" alt="" data-full-image="themes/automovile/images/boxster6.jpg" /> </li>
-                                    <li data-thumb="themes/automovile/images/boxster7_slide.jpg"> <img src="themes/automovile/images/boxster7_slide.jpg" alt="" data-full-image="themes/automovile/images/boxster7.jpg" /> </li>
-                                  <li data-thumb="themes/automovile/images/boxster9_slide.jpg"> <img src="themes/automovile/images/boxster9_slide.jpg" alt="" data-full-image="themes/automovile/images/boxster9.jpg" /> </li>
-
-                                  <li data-thumb="themes/automovile/images/boxster14_slide.jpg"> <img src="themes/automovile/images/boxster14_slide.jpg" alt="" data-full-image="themes/automovile/images/boxster14.jpg" /> </li>
-
                                 </ul>
                             </div>
                         </section>
@@ -113,13 +104,7 @@
                                     <li data-thumb="themes/automovile/images/thumbnail3.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail3.jpg" alt="" /></a> </li>
                                     <li data-thumb="themes/automovile/images/thumbnail4.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail4.jpg" alt="" /></a> </li>
                                     <li data-thumb="themes/automovile/images/thumbnail5.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail5.jpg" alt="" /></a> </li>
-                                    <!-- full -->
-
-                                    <li data-thumb="themes/automovile/images/thumbnail8.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail8.jpg" alt="" /></a> </li>
-                                    <li data-thumb="themes/automovile/images/thumbnail9.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail9.jpg" alt="" /></a> </li>
-                                    <li data-thumb="themes/automovile/images/thumbnail10.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail10.jpg" alt="" /></a> </li>
-                                    <li data-thumb="themes/automovile/images/thumbnail14.jpg"> <a href="#"><img src="themes/automovile/images/thumbnail14.jpg" alt="" /></a> </li>
-                                    
+                             
                                 </ul>
                             </div>
                         </section>
