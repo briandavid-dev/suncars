@@ -7,6 +7,7 @@
 	use app\assets\AutomovileAsset;
     use yii\helpers\Url;
     use app\controllers\SiteController;
+    use app\models\Categorias;
 
 
 	AutomovileAsset::register($this);
@@ -305,7 +306,7 @@ label {
                
                 </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
-                <h4>Nuestros Productos</h4>
+                <h4>Productos y Servicios</h4>
                
 
               <nav class="sidebar-menu slide-from-left">
@@ -313,12 +314,25 @@ label {
                 <div  class="content" >
                     <nav class="responsive-menu">
                         <ul >
+                            <?php
+                                $modelCategorias = Categorias::find()->limit(6)->all();
+
+
+                                foreach ($modelCategorias as $keyCat => $valCat) {
+                            ?>
+                                <a href="<?php print Url::base(true).$valCat->categoria_http; ?>"><?php print $valCat->categoria_nombre; ?></a><br>
+
+                            <?php
+                                }
+                            ?>
+
+                            <!--
                             <a href="productos">Alarmas</a><br>
-                          <a href="productos">Tranca Palanca</a><br>
-                          <a href="productos">Bódeda</a><br>
-                         <a href="productos">Papel Ahumado</a><br>
-                         <a href="productos">Auto Periquitos</a>
-                
+                            <a href="productos">Tranca Palanca</a><br>
+                            <a href="productos">Bódeda</a><br>
+                            <a href="productos">Papel Ahumado</a><br>
+                            <a href="productos">Auto Periquitos</a>
+                            -->
                         </ul>
                     </nav>
                 </div>

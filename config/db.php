@@ -5,7 +5,7 @@
 
 return [
 		'class' => 'yii\db\Connection',
-		'dsn' => 'mysql:host=localhost;dbname=suncars',
+		'dsn' => 'mysql:host=localhost;dbname=suncars;port=33061',
 		'username' => 'root',
 		'password' => '',
 		'charset' => 'utf8',
