@@ -23,7 +23,11 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'contenido_id')->textInput() ?>
 
     <div class="form-group">
+<<<<<<< HEAD
         <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+=======
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+>>>>>>> 930a8e43e2632c3f843cfabaeda7a21e4291ff7d
     </div>
 
     <?php ActiveForm::end(); ?>

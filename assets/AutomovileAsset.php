@@ -49,7 +49,7 @@ class AutomovileAsset extends AssetBundle
            'themes/automovile/index_files/jquery.min.js',
            'themes/automovile/index_files/bootstrap.min.js',
            'themes/automovile/index_files/wow.min.js',
-           'themes/automovile/index_files/js',
+           /*'themes/automovile/index_files/js',*/
            'themes/automovile/index_files/jquery.themepunch.tools.min.js',
            'themes/automovile/index_files/jquery.themepunch.revolution.min.js',
            'themes/automovile/index_files/revolution.extension.actions.min.js',
@@ -61,12 +61,12 @@ class AutomovileAsset extends AssetBundle
            'themes/automovile/index_files/revolution.extension.parallax.min.js',
            'themes/automovile/index_files/revolution.extension.slideanims.min.js',
            'themes/automovile/index_files/revolution.extension.video.min.js',
-           'themes/automovile/index_files/common.js',
-           'themes/automovile/index_files/map.js',
-           'themes/automovile/index_files/util.js',
-           'themes/automovile/index_files/marker.js',
-           'themes/automovile/index_files/onion.js',
-           'themes/automovile/index_files/stats.js',
+           /*'themes/automovile/index_files/common.js',*/
+           /*'themes/automovile/index_files/map.js',*/
+           /*'themes/automovile/index_files/util.js',*/
+           /*'themes/automovile/index_files/marker.js',*/
+           /*'themes/automovile/index_files/onion.js',*/
+          /* 'themes/automovile/index_files/stats.js',*/
            'themes/automovile/index_files/retina.js',
            'themes/automovile/index_files/jquery.parallax.js',
            'themes/automovile/index_files/jquery.inview.min.js',

@@ -14,6 +14,8 @@ use yii\filters\VerbFilter;
  */
 class SolicitudesController extends Controller
 {
+     public $layout = 'panel';
+     
     /**
      * @inheritdoc
      */

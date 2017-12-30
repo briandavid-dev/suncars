@@ -1,4 +1,5 @@
 <?php
+
     use app\models\PaginasGenerales;
 
     $texto = PaginasGenerales::find()->where(["pagina_general_http"=>"quienesomos"])->one();
@@ -11,8 +12,7 @@
             </div>
              
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h2 style="color: #009FB6;
-    text-align: center; padding-bottom: 30px;  "><?php
+                <h2 style="color: #009FB6; text-align: center; padding-bottom: 30px;  "><?php
                             print $texto["pagina_general_titulo"]; 
                         ?></h2>
                 
@@ -49,6 +49,7 @@
 
                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                   <p style="text-align: justify !important;"> 
+
 
                     <?php
                             print $texto["pagina_general_contenido_2"]; 

@@ -37,7 +37,6 @@ class Solicitudes extends \yii\db\ActiveRecord
             [['contenido_id'], 'integer'],
             [['contenido_id'], 'exist', 'skipOnError' => true, 'targetClass' => Contenidos::className(), 'targetAttribute' => ['contenido_id' => 'contenido_id']],
 
-
             [['solicitud_email'], 'email'],
         ];
     }

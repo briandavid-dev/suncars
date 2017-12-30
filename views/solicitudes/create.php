@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Solicitudes */
 
-$this->title = Yii::t('app', 'Create Solicitudes');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Solicitudes'), 'url' => ['index']];
+$this->title = 'Create Solicitudes';
+$this->params['breadcrumbs'][] = ['label' => 'Solicitudes', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="solicitudes-create">

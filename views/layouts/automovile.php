@@ -38,11 +38,13 @@
 
 <link rel="stylesheet" href="./themes/automovile/index_files/flexslider.css" type="text/css" media="screen">
 <link rel="stylesheet" href="./themes/automovile/index_files/jquery.bxslider.css" type="text/css" media="screen">
+
 <link href="./themes/automovile/index_files/jquery.fancybox.css" rel="stylesheet">
 <link href="./themes/automovile/index_files/jquery.selectbox.css" rel="stylesheet">
 <link href="./themes/automovile/index_files/style.css" rel="stylesheet">
 <link href="./themes/automovile/index_files/mobile.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="./themes/automovile/index_files/settings.css" media="screen">
+
 <link href="./themes/automovile/index_files/animate.min.css" rel="stylesheet">
 <link href="./themes/automovile/index_files/ts.css" type="text/css" rel="stylesheet">
 
@@ -50,10 +52,12 @@
 <script type="text/javascript" src="./themes/automovile/index_files/jquery.min.js"></script>
 <script src="./themes/automovile/index_files/bootstrap.min.js"></script>
 <script type="text/javascript" src="./themes/automovile/index_files/wow.min.js"></script>
-<script type="text/javascript" src="./themes/automovile/index_files/js"></script>
+<!--<script type="text/javascript" src="./themes/automovile/index_files/js"></script>-->
 
 <script type="text/javascript" src="./themes/automovile/index_files/jquery.themepunch.tools.min.js"></script>
 <script type="text/javascript" src="./themes/automovile/index_files/jquery.themepunch.revolution.min.js"></script>
+
+
 
 <!-- SLIDER REVOLUTION 5.0 EXTENSIONS  
             (Load Extensions only on Local File Systems !  
@@ -67,18 +71,18 @@
 <script type="text/javascript" src="./themes/automovile/index_files/revolution.extension.parallax.min.js"></script>
 <script type="text/javascript" src="./themes/automovile/index_files/revolution.extension.slideanims.min.js"></script>
 <script type="text/javascript" src="./themes/automovile/index_files/revolution.extension.video.min.js"></script>
+<!--<script type="text/javascript" src="./themes/automovile/index_files/map.js"></script>
 
-<!-- Twitter Feed Scripts 
-     Uncomment to activate
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Yellowtail%7COpen%20Sans%3A400%2C300%2C600%2C700%2C800" media="screen" />-->
 
-<script type="text/javascript" src="js/twitter/jquery.tweet.js"></script>
-<script type="text/javascript" src="js/twitter/twitter_feed.js"></script> -->
 
-<style type="text/css">.fancybox-margin{margin-right:17px;}</style><script type="text/javascript" charset="UTF-8" src="./themes/automovile/index_files/common.js"></script><script type="text/javascript" charset="UTF-8" src="./themes/automovile/index_files/map.js"></script><script type="text/javascript" charset="UTF-8" src="./themes/automovile/index_files/util.js"></script><script type="text/javascript" charset="UTF-8" src="./themes/automovile/index_files/marker.js"></script><style type="text/css">.gm-style {
+
+<!--
+<style type="text/css">.fancybox-margin{margin-right:17px;}</style><script type="text/javascript" charset="UTF-8" src="./themes/automovile/index_files/common.js"></script></script><script type="text/javascript" charset="UTF-8" src="./themes/automovile/index_files/util.js"></script><script type="text/javascript" charset="UTF-8" src="./themes/automovile/index_files/marker.js"></script> <style type="text/css">.gm-style {
         font: 400 11px Roboto, Arial, sans-serif;
         text-decoration: none;
       }
-      .gm-style img { max-width: none; }</style><script type="text/javascript" charset="UTF-8" src="./themes/automovile/index_files/onion.js"></script><script type="text/javascript" charset="UTF-8" src="./themes/automovile/index_files/controls.js"></script><script type="text/javascript" charset="UTF-8" src="./themes/automovile/index_files/stats.js"></script>
+      .gm-style img { max-width: none; }</style><script type="text/javascript" charset="UTF-8" src="./themes/automovile/index_files/onion.js"></script><script type="text/javascript" charset="UTF-8" src="./themes/automovile/index_files/controls.js"></script><script type="text/javascript" charset="UTF-8" src="./themes/automovile/index_files/stats.js"></script>-->
 
 <style type="text/css">
 
@@ -204,7 +208,7 @@ label {
                 <div class="col-lg-6 ">
                     <ul class="right-none pull-right company_info">
                         <li><a href="tel:18005670123"><i class="fa fa-phone"></i> (0212) 662 84 04</a></li>
-                        <li class="address"><a href="contacto"><i class="fa fa-map-marker"></i> Av. Arturo Michelena, Qta. Ami, Santa Mónica.</a></li>
+                        <li class="address"><a href="contacto"><i class="fa fa-map-marker"></i> Santa Mónica, Av. Arturo Michelena, Qta. Ami.</a></li>
                     </ul>
                 </div>
             </div>
@@ -319,10 +323,12 @@ label {
                 <h4>Contáctenos</h4>
                 <div class="footer-contact">
                     <ul>
-                        <li><i class="fa fa-map-marker"></i><strong>Dirección:</strong> Santa Mónica, Av. Arturo Michelena, Quinta. Ami, Caracas, Dist. Capital.</li>
+
+                        <li><i class="fa fa-map-marker"></i> <strong>Dirección:</strong>  Santa Mónica, Av. Arturo Michelena, Quinta. Ami. Caracas. Venezuela</li>
                         <li><i class="fa fa-phone"></i> <strong>Teléfono:</strong>(0212) 662 84 04</li>
                         <li><i class="fa fa-phone"></i><strong>Telefax:</strong> <span>(0212) 693 75 65</span></li>
-                        <li><i class="fa fa-envelope-o"></i> <strong>E-Mail:</strong><a href="contacto">sonia.m.aa@hotmail.com</a></li>
+                        <li><i class="fa fa-envelope-o"></i> <strong>Email:</strong><a href="contacto">suncarsinfo@gmail.com</a></li>
+                        
                     </ul>
 
                     <i class="fa fa-location-arrow back_icon"></i>
